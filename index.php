@@ -30,7 +30,7 @@ and open the template in the editor.
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">Maps</a>
+                            <a class="navbar-brand" href="#">Isan Maps</a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
@@ -200,12 +200,12 @@ and open the template in the editor.
             <div class="row featurette">
                 <div class="col-md-7 col-md-push-5">
                     <h2 class="featurette-heading">ค้นหาตำแหน่งปัจจุบันของคุณ. <span class="text-muted">See for yourself.</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <p class="lead">ระบบจะระบุตำแหน่งปัจจุบันของคุณว่าตอนนี้คุณอยู่ที่ไหน</p>
                 </div>
                 <div class="col-md-5 col-md-pull-7">
                     ตำแหน่งของฉัน:
                     <div id="geo_data"></div>
-                    <div id="map_canvas" style="background: #f5f5f5; height:250px; width: 450px;"> </div>
+                    <div id="map_canvas"> </div>
 
                     <script type="text/javascript">
                         var initialLocation;
@@ -277,7 +277,7 @@ and open the template in the editor.
             <section class="row featurette">
                 <div class="col-md-7">
                     <h2 class="featurette-heading">ค้นหาสถานีที่ใกล้ที่สุด. <span class="text-muted">ด้วยตัวคุณเอง.</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <p class="lead">คุณสามารถค้นหาสถานีขนส่งสาธารณะที่ใกล้ตัวคุณที่สุด.</p>
                 </div>
                 <div class="col-md-5">
                     <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
@@ -296,7 +296,7 @@ and open the template in the editor.
             <div class="row featurette">
                 <div class="col-md-7 col-md-push-5">
                     <h2 class="featurette-heading">เช็คราคาตั๋วเดินทาง. <span class="text-muted">See for yourself.</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <p class="lead">คุณสามารถเช็คราคาตั๋วเดินไปยังจุดปลายทางที่คุณต้องการจะเดินทาง</p>
                 </div>
                 <div class="col-md-5 col-md-pull-7">
                     <div class="heading-location">
@@ -333,7 +333,7 @@ and open the template in the editor.
             <div class="row featurette">
                 <div class="col-md-7 ">
                     <h2 class="featurette-heading">รายชื่อสถานีส่งสาธารณะ. <span class="text-muted"><br>ภาคตะวันออกเฉียงเหนือ.</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <p class="lead"></p>
                 </div>
                 <div class="col-md-5 ">
                     <div class="heading-location">
