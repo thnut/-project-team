@@ -37,8 +37,31 @@ and open the template in the editor.
                                 <li class="active"><a href="index.php">Home</a></li>
                                 <li><a href="#">About</a></li>
                                 <li><a href="#">Contact</a></li>
-                                <li><a href="#">Bus</a></li>
-                                <li><a href="#">Van</a></li>
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bus <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">407 พัฒนา</a></li>
+                                        <li><a href="#">นครชัยแอร์</a></li>
+                                        <li><a href="#">รุ่งประเสริฐทัวร์</a></li>
+                                        <li><a href="#">ชาญทัวร์</a></li>
+                                        <li><a href="#">สหพันธุ์ร้อยเอ็ด</a></li>
+                                        <li><a href="#">อีสานทัวร์</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Van<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">บริษัทภูเขียว</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li class="dropdown-header">Nav header</li>
+                                        <li><a href="#">Separated link</a></li>
+                                        <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </li>
+
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Table Times <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
@@ -72,21 +95,22 @@ and open the template in the editor.
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img class="first-slide" src="img/IMG_0556.jpg" alt="First slide" style="height: 550px;" >
+                    <img class="first-slide" src="img/dscf6629_tonemapped.jpg" alt="First slide" >
                     <div class="container">
                         <div class="carousel-caption">
-
-
+                            <h3>สถานีขนส่งจังหวัดขอนแก่น ที่ 3</h3>
+                            <p>สถานีขนส่งประจำจังหวัดขอนแก่นที่ 3 เป็นสถานีขนส่งประจำจังหวัดขอนแก่นที่มีรถสายทั่วประเทศที่ผ่านเข้ามาหรือมีผู้โดยสารที่มีจุดมุ่งหมายเดียวกัน</p>
+                            <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>-->
                         </div>
                     </div>
                 </div>
                 <div class="item">
-                    <img class="second-slide" src="img/IMG_0556.jpg" alt="Second slide">
+                    <img class="second-slide" src="img/2-copy1.jpg" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                            <h3>สถานีขนส่งจังหวัดเชียงใหม่</h3>
+                            <p>สถานีขนส่งประจำจังหวัดเชียงใหม่ เป็นสถานีขนส่งประจำจังหวัดเขียงใหม่ที่มีรถสายทั่วประเทศที่ผ่านเข้ามาหรือมีผู้โดยสารที่มีจุดมุ่งหมายเดียวกัน</p>
+                            <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>-->
                         </div>
                     </div>
                 </div>
@@ -148,7 +172,7 @@ and open the template in the editor.
                     <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="160" height="140">
+                    <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
                     <h2>สหพันธ์ร้อยเอ็ดทัวร์</h2>
                     <p>ให้บริการรถโดยสารประจำทางที่ยอดเยี่ยมมีมาตรฐาน ตรงตามความต้องการของผู้ใช้บริการด้วยระบบการบริหารงานที่มีธรรมาภิบาล</p>
                     <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
@@ -172,8 +196,8 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-lg-4">
                     <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                    <h2>รุ่งประเสริฐทัวร์</h2>
-                    <p>บริษัท 407 พัฒนา คือ บริษัทรถทัวร์ที่ให้บริการในเขตภาคอีสาน</p>
+                    <h2>บริษัทภูเขียว</h2>
+                    <p>บริษัทภูเขียว คือ บริษัทรถตู้ขนส่งสาธารณะที่มีเส้นทางเดิน ขอนแก่น - ภูเขียว ที่ให้บริการในเขตภาคอีสาน</p>
                     <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
@@ -199,8 +223,11 @@ and open the template in the editor.
 
             <div class="row featurette">
                 <div class="col-md-7 col-md-push-5">
-                    <h2 class="featurette-heading">ค้นหาตำแหน่งปัจจุบันของคุณ. <span class="text-muted">See for yourself.</span></h2>
+                    <center> <img class="" src="img/red-marker.png" alt="รายชื่อสถานีขนส่งภาคตะวันออกเฉียงเหนือ" width="150px" height="250px"></center>
+                    <h2 class="featurette-heading">ค้นหาตำแหน่งปัจจุบันของคุณ. 
+                        <span class="text-muted"></span></h2>
                     <p class="lead">ระบบจะระบุตำแหน่งปัจจุบันของคุณว่าตอนนี้คุณอยู่ที่ไหน</p>
+                    <center><a class="btn btn-lg btn-info" href="#" role="button">Searh Me</a></center>
                 </div>
                 <div class="col-md-5 col-md-pull-7">
                     ตำแหน่งของฉัน:
@@ -273,16 +300,14 @@ and open the template in the editor.
             </div>
 
             <hr class="featurette-divider">
-
             <section class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">ค้นหาสถานีที่ใกล้ที่สุด. <span class="text-muted">ด้วยตัวคุณเอง.</span></h2>
+                <div class="col-md-8">
+                    <h2 class="featurette-heading">
+                        ค้นหาสถานีที่ใกล้ที่สุด.
+                        <span class="text-muted"></span></h2>
                     <p class="lead">คุณสามารถค้นหาสถานีขนส่งสาธารณะที่ใกล้ตัวคุณที่สุด.</p>
                 </div>
-                <div class="col-md-5">
-                    <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-
-
+                <div class="col-md-4">
                     <select class="selectpicker">
                         <option>สถานีขนส่งจังหวัดขอนแก่น</option>
                         <option data-subtext="Heinz">Ketchup</option>
@@ -295,12 +320,28 @@ and open the template in the editor.
 
             <div class="row featurette">
                 <div class="col-md-7 col-md-push-5">
-                    <h2 class="featurette-heading">เช็คราคาตั๋วเดินทาง. <span class="text-muted">See for yourself.</span></h2>
+                    <img class="logo" src="img/bus-ticket-icon.png" alt="ticket-logo" width="250px" height="250px" >
+                    <h2 class="featurette-heading">เช็คราคาตั๋วเดินทาง. <span class="text-muted"></span></h2>
                     <p class="lead">คุณสามารถเช็คราคาตั๋วเดินไปยังจุดปลายทางที่คุณต้องการจะเดินทาง</p>
                 </div>
                 <div class="col-md-5 col-md-pull-7">
                     <div class="heading-location">
                         สถานีต้นทาง
+                    </div>
+                    <select class="form-control">
+                        <option>สถานีขนส่งจังหวัดขอนแก่น</option>
+                        <option>สถานีขนส่งอำเภอบ้านไผ่</option>
+                        <option>สถานีขนส่งอำเภอเมืองพล</option>
+                        <option>สถานีขนส่งนครราชสีมา</option>
+                        <option>สถานีขนส่งหมอชิต</option>
+                        <option>สถานีขนส่งหนองคาย</option>
+                        <option>สถานีขนส่งสกลนคร</option>
+                        <option>สถานีขนส่งร้อยเอ็ด</option>
+                        <option>สถานีขนส่งสุรินทร์</option>
+                        <option>สถานีขนส่งยโสธร</option>
+                    </select>
+                    <div class="heading-location">
+                        สถานีปลายทาง
                     </div>
                     <select class="form-control">
                         <option>สถานีขนส่งจังหวัดขอนแก่น</option>
@@ -324,7 +365,7 @@ and open the template in the editor.
                             Van
                         </label>
                     </div>
-                    <input type="text" class="form-control" placeholder="Price">
+                    <input type="text" class="form-control" placeholder="Price" value="50 $" > 
                 </div>
             </div>
 
@@ -332,8 +373,9 @@ and open the template in the editor.
 
             <div class="row featurette">
                 <div class="col-md-7 ">
-                    <h2 class="featurette-heading">รายชื่อสถานีส่งสาธารณะ. <span class="text-muted"><br>ภาคตะวันออกเฉียงเหนือ.</span></h2>
-                    <p class="lead"></p>
+                    <img class="logo" src="img/Bus-icon.jpg" alt="bus-station" width="250px;" height="250px;">
+                    <h2 class="featurette-heading">รายชื่อสถานีขนส่งสาธารณะ. <span class="text-muted"></span></h2>
+                    <p class="lead">รายชื่อสถานีขนส่งในเขตภาคตะวันออกเฉียงเหนือ.</p>
                 </div>
                 <div class="col-md-5 ">
                     <div class="heading-location">
