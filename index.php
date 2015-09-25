@@ -214,8 +214,122 @@ and open the template in the editor.
                 </div><!-- /.col-lg-4 -->
             </div>
 
+            <hr class="featurette-divider">
+            <section class="row featurette">
+                <div class="col-md-6">
+                    <img class="logo" src="img/bus-ticket-icon.png" alt="ticket-logo" width="250px" height="250px" >
+                    <h2 class="featurette-heading">
+                        แนะนำเส้นทางการเดินทาง
+                        <span class="text-muted"></span></h2>
+                    <p class="lead">แนะนำเส้นทางการเดินทางของคุณด้วยรถทัวร์และรถตู้</p>
+
+                    <div class="heading-location">
+                        <p>สถานีต้นทาง</p>
+                    </div>
+                    <select class="form-control">
+                        <option>สถานีขนส่งจังหวัดขอนแก่น</option>
+                        <option>สถานีขนส่งอำเภอบ้านไผ่</option>
+                        <option>สถานีขนส่งอำเภอเมืองพล</option>
+                        <option>สถานีขนส่งนครราชสีมา</option>
+                        <option>สถานีขนส่งหมอชิต</option>
+                        <option>สถานีขนส่งหนองคาย</option>
+                        <option>สถานีขนส่งสกลนคร</option>
+                        <option>สถานีขนส่งร้อยเอ็ด</option>
+                        <option>สถานีขนส่งสุรินทร์</option>
+                        <option>สถานีขนส่งยโสธร</option>
+                    </select>
+                    <div class="heading-location">
+                        <p>สถานีปลายทาง</p>
+                    </div>
+                    <select class="form-control">
+                        <option>สถานีขนส่งจังหวัดขอนแก่น</option>
+                        <option>สถานีขนส่งอำเภอบ้านไผ่</option>
+                        <option>สถานีขนส่งอำเภอเมืองพล</option>
+                        <option>สถานีขนส่งนครราชสีมา</option>
+                        <option>สถานีขนส่งหมอชิต</option>
+                        <option>สถานีขนส่งหนองคาย</option>
+                        <option>สถานีขนส่งสกลนคร</option>
+                        <option>สถานีขนส่งร้อยเอ็ด</option>
+                        <option>สถานีขนส่งสุรินทร์</option>
+                        <option>สถานีขนส่งยโสธร</option>
+                    </select>
+                    <p>Price</p>
+                    <input type="text" class="form-control" placeholder="Price" value="50 $" > 
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                            Bus
+                        </label>
+                        <label>
+                            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                             Van
+                        </label>
+                    </div>
+                    <div class="submit-b">
+                        <a class="btn btn-lg btn-info" href="#" role="button">Submit</a>
+                    </div>
+                </div>
 
 
+                <div class="col-md-6">
+
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
+                                </div>
+                                <div class="timeline-body">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                                </div>
+                                <div class="timeline-body">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <hr>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                            <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                                </div>
+                                <div class="timeline-body">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
 
             <!-- START THE FEATURETTES -->
@@ -223,9 +337,10 @@ and open the template in the editor.
 
             <div class="row featurette">
                 <div class="col-md-7 col-md-push-5">
-                    <center> <img class="" src="img/red-marker.png" alt="รายชื่อสถานีขนส่งภาคตะวันออกเฉียงเหนือ" width="150px" height="250px"></center>
+                    <center> <img class="" src="img/red-marker.png" alt="รายชื่อสถานีขนส่งภาคตะวันออกเฉียงเหนือ" width="110px" height="180px"></center>
                     <h2 class="featurette-heading">ค้นหาตำแหน่งปัจจุบันของคุณ. 
-                        <span class="text-muted"></span></h2>
+                        <span class="text-muted"></span>
+                    </h2>
                     <p class="lead">ระบบจะระบุตำแหน่งปัจจุบันของคุณว่าตอนนี้คุณอยู่ที่ไหน</p>
                     <center><a class="btn btn-lg btn-info" href="#" role="button">Searh Me</a></center>
                 </div>
@@ -290,13 +405,6 @@ and open the template in the editor.
                     </script>
                 </div>
 
-
-
-
-
-
-
-
             </div>
 
             <hr class="featurette-divider">
@@ -315,62 +423,7 @@ and open the template in the editor.
                     </select>
                 </div>
             </section>
-
             <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7 col-md-push-5">
-                    <img class="logo" src="img/bus-ticket-icon.png" alt="ticket-logo" width="250px" height="250px" >
-                    <h2 class="featurette-heading">เช็คราคาตั๋วเดินทาง. <span class="text-muted"></span></h2>
-                    <p class="lead">คุณสามารถเช็คราคาตั๋วเดินไปยังจุดปลายทางที่คุณต้องการจะเดินทาง</p>
-                </div>
-                <div class="col-md-5 col-md-pull-7">
-                    <div class="heading-location">
-                        สถานีต้นทาง
-                    </div>
-                    <select class="form-control">
-                        <option>สถานีขนส่งจังหวัดขอนแก่น</option>
-                        <option>สถานีขนส่งอำเภอบ้านไผ่</option>
-                        <option>สถานีขนส่งอำเภอเมืองพล</option>
-                        <option>สถานีขนส่งนครราชสีมา</option>
-                        <option>สถานีขนส่งหมอชิต</option>
-                        <option>สถานีขนส่งหนองคาย</option>
-                        <option>สถานีขนส่งสกลนคร</option>
-                        <option>สถานีขนส่งร้อยเอ็ด</option>
-                        <option>สถานีขนส่งสุรินทร์</option>
-                        <option>สถานีขนส่งยโสธร</option>
-                    </select>
-                    <div class="heading-location">
-                        สถานีปลายทาง
-                    </div>
-                    <select class="form-control">
-                        <option>สถานีขนส่งจังหวัดขอนแก่น</option>
-                        <option>สถานีขนส่งอำเภอบ้านไผ่</option>
-                        <option>สถานีขนส่งอำเภอเมืองพล</option>
-                        <option>สถานีขนส่งนครราชสีมา</option>
-                        <option>สถานีขนส่งหมอชิต</option>
-                        <option>สถานีขนส่งหนองคาย</option>
-                        <option>สถานีขนส่งสกลนคร</option>
-                        <option>สถานีขนส่งร้อยเอ็ด</option>
-                        <option>สถานีขนส่งสุรินทร์</option>
-                        <option>สถานีขนส่งยโสธร</option>
-                    </select>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                            Bus
-                        </label>
-                        <label>
-                            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                            Van
-                        </label>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Price" value="50 $" > 
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
             <div class="row featurette">
                 <div class="col-md-7 ">
                     <img class="logo" src="img/Bus-icon.jpg" alt="bus-station" width="250px;" height="250px;">
