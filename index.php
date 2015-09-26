@@ -217,7 +217,9 @@ and open the template in the editor.
             <hr class="featurette-divider">
             <section class="row featurette">
                 <div class="col-md-6">
-                    <img class="logo" src="img/bus-ticket-icon.png" alt="ticket-logo" width="250px" height="250px" >
+                    <center>
+                        <img  src="img/bus-ticket-icon.png" alt="ticket-logo" width="250px" height="250px" >
+                    </center>
                     <h2 class="featurette-heading">
                         แนะนำเส้นทางการเดินทาง
                         <span class="text-muted"></span></h2>
@@ -227,6 +229,7 @@ and open the template in the editor.
                         <p>สถานีต้นทาง</p>
                     </div>
                     <select class="form-control">
+                        <option>มหาวิทยาลัยขอนแก่น</option>
                         <option>สถานีขนส่งจังหวัดขอนแก่น</option>
                         <option>สถานีขนส่งอำเภอบ้านไผ่</option>
                         <option>สถานีขนส่งอำเภอเมืองพล</option>
@@ -242,6 +245,7 @@ and open the template in the editor.
                         <p>สถานีปลายทาง</p>
                     </div>
                     <select class="form-control">
+                        <option>มหาวิทยาลัยขอนแก่น</option>
                         <option>สถานีขนส่งจังหวัดขอนแก่น</option>
                         <option>สถานีขนส่งอำเภอบ้านไผ่</option>
                         <option>สถานีขนส่งอำเภอเมืองพล</option>
@@ -262,72 +266,78 @@ and open the template in the editor.
                         </label>
                         <label>
                             <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                             Van
+                            Van
                         </label>
                     </div>
                     <div class="submit-b">
-                        <a class="btn btn-lg btn-info" href="#" role="button">Submit</a>
+                        <center><a class="btn btn-lg btn-info" href="#" role="button">Submit</a></center>
                     </div>
                 </div>
 
 
                 <div class="col-md-6">
+                    <div class="timeline-centered">
+                        <article class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon bg-success">
+                                    <i class="entypo-feather"></i>
+                                </div>
+                                <div class="timeline-label">
+                                    <h2><a href="#">ขึ้นท่ารถตู้ที่สวนกัลปพฤกษ์</a></h2>
+                                    <p>2 km</p>
+                                </div>
+                            </div>
 
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
+                        </article>
+
+
+                        <article class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon bg-secondary">
+                                    <i class="entypo-suitcase"></i>
                                 </div>
-                                <div class="timeline-body">
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-                                </div>
-                                <div class="timeline-body">
+                                <div class="timeline-label">
+                                    <h2><a href="#">ต่อรถตู้ที่เซนทรัลพลาซ่าขอนแก่น เพื่อไปลงสถานีขนส่งที่ 3 จังหวัดขอนแก่น</a></h2>
+                                    <p>6 Km</p>
                                 </div>
                             </div>
-                        </li>
-                        <li>
-                            <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                        </article>
+
+
+                        <article class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon bg-info">
+                                    <i class="entypo-location"></i>
                                 </div>
-                                <div class="timeline-body">
-                                    <hr>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                            <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
+                                <div class="timeline-label">
+                                    <h2><a href="#">ขึ้นรถทัวร์สถานีขนส่งที่ 3 จังหวัดขอนแก่น</a></h2>
+                                    <p>9 Km.</p>
                                 </div>
                             </div>
-                        </li>
-                        <li>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                        </article>
+
+                        <article class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon bg-warning">
+                                    <i class="entypo-camera"></i>
                                 </div>
-                                <div class="timeline-body">
+                                <div class="timeline-label">
+                                    <h2><a href="#">ถึงสถานีปลายทางของท่าน</a></h2>
+                                    <p>44 Km</p>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
+
+                        </article>
+
+
+                        <article class="timeline-entry begin">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+                                    <i class="entypo-flight"></i> +
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </section>
 
@@ -426,7 +436,9 @@ and open the template in the editor.
             <hr class="featurette-divider">
             <div class="row featurette">
                 <div class="col-md-7 ">
+
                     <img class="logo" src="img/Bus-icon.jpg" alt="bus-station" width="250px;" height="250px;">
+
                     <h2 class="featurette-heading">รายชื่อสถานีขนส่งสาธารณะ. <span class="text-muted"></span></h2>
                     <p class="lead">รายชื่อสถานีขนส่งในเขตภาคตะวันออกเฉียงเหนือ.</p>
                 </div>
