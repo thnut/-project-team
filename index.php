@@ -352,7 +352,7 @@ and open the template in the editor.
                         <span class="text-muted"></span>
                     </h2>
                     <p class="lead">ระบบจะระบุตำแหน่งปัจจุบันของคุณว่าตอนนี้คุณอยู่ที่ไหน</p>
-                    <center><a class="btn btn-lg btn-info" href="#" role="button">Searh Me</a></center>
+                    <center><a class="btn btn-lg btn-info" onclick="initialLocation" role="button">Searh Me</a></center>
                 </div>
                 <div class="col-md-5 col-md-pull-7">
                     ตำแหน่งของฉัน:
