@@ -119,6 +119,24 @@ body {
 /* Fix size mobile version
 -------------------------------------------------- */
 @media (max-width: 414px) {
+    .form-control {
+        text-align: center;
+        overflow: auto;
+
+    }
+    .notice-danger {
+        border-color: #ff3333;
+        background-color: #ff6633;
+        color: white;
+         text-align: center;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 20px;
+        border-left: 6px solid #ff6633;
+        -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+        box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+    }
 
     .carousel {
         height: 275px;
@@ -518,25 +536,38 @@ body {
 @media (min-width: 992px) {
     .featurette-heading {
         margin-top: 0px;
+        text-align: center;
+        font-size: 40px;
+    }
+    .lead {
+        text-align: center;
     }
     .text-muted {
         font-size: 25px;
     }
     .logo {
-        margin-left: 150px;
+        margin-left: 190px;
+    }
+    .form-control {
+        text-align: center;
+
     }
     .lead {
-
+        text-align: center;
     }
-
+    #map_canvas {
+        background: #f5f5f5; 
+        border-radius: 20px;
+        height:300px; 
+        width: 450px;
+    }
     .notice {
         text-align: center;
         padding: 15px;
-
         font-weight: bold;
         font-size: 20px;
-        color: #fff;
-        background-color: #45ABCD;
+        color: #333;
+        background-color: #ff3333;
         border-left: 6px solid #7f7f84;
         margin-bottom: 30px;
         -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
@@ -545,8 +576,19 @@ body {
     }
     .notice-info {
         border-color: #45ABCD;
-        border-radius: 10px;
-
+    }
+    .notice-danger {
+        border-color: #ff3333;
+        background-color: #ff6633;
+        color: white;
+         text-align: center;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 20px;
+        border-left: 6px solid #ff6633;
+        -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+        box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
     }
 
     .checkbox {
@@ -554,19 +596,28 @@ body {
         text-align: center;
     }
 
-    #test {
-        background-color: #333;
-        padding: 120px;
+    #span-text {
+        clear: both;
+        background-color: rgba(215, 40, 40, 0.9);
+        padding: 100px;
         color:white;
         text-align: center;
         font-size: 30px;
         font-weight: bold;
     }
 
+    #span-text-1 {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        font-size: 30px;
+        text-align: center;
+        padding: 100px;
+    }
     .submit-b {
         margin-top: 10px;
 
     }
+
 
     /*timeline*/
 

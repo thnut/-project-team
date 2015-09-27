@@ -127,7 +127,10 @@ and open the template in the editor.
         </div><!-- /.carousel -->
 
 
+        <section id="span-text-1">
 
+            แนะนำบริษัทรถทัวร์และรถตู้ขนส่งสาธารณะ
+        </section>
 
         <!-- Marketing messaging and featurettes
          ================================================== -->
@@ -213,6 +216,15 @@ and open the template in the editor.
                     <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
             </div>
+        </div>
+
+
+
+        <section id="span-text">
+            I have 7 Features for you 
+        </section>
+
+        <div class="container marketing">
 
             <hr class="featurette-divider">
             <section class="row featurette">
@@ -342,26 +354,29 @@ and open the template in the editor.
             </section>
 
 
+
+
             <!-- START THE FEATURETTES -->
             <hr class="featurette-divider">
 
             <div class="row featurette">
                 <div class="col-md-7 col-md-push-5">
                     <center> <img class="" src="img/red-marker.png" alt="รายชื่อสถานีขนส่งภาคตะวันออกเฉียงเหนือ" width="110px" height="180px"></center>
-                    <h2 class="featurette-heading">ค้นหาตำแหน่งปัจจุบันของคุณ. 
+                    <h2 class="featurette-heading">ค้นหาตำแหน่งปัจจุบันของคุณอัตโนมัติ. 
                         <span class="text-muted"></span>
                     </h2>
                     <p class="lead">ระบบจะระบุตำแหน่งปัจจุบันของคุณว่าตอนนี้คุณอยู่ที่ไหน</p>
-                    <center><a class="btn btn-lg btn-info" onclick="initialLocation" role="button">Searh Me</a></center>
+                    <!--<center><a class="btn btn-lg btn-info" onclick="initialLocation" role="button">Searh Me</a></center>-->
                 </div>
                 <div class="col-md-5 col-md-pull-7">
-                    ตำแหน่งของฉัน:
+
                     <div id="geo_data"></div>
                     <div id="map_canvas"> </div>
 
                     <script type="text/javascript">
+
                         var initialLocation;
-                        var bangkok = new google.maps.LatLng(13.755716, 100.501589);
+                        var khonkaen = new google.maps.LatLng(13.755716, 100.501589);
                         function initialize() {
                             var myOptions = {
                                 zoom: 15,
@@ -412,6 +427,8 @@ and open the template in the editor.
                         $(document).ready(function () {
                             initialize();
                         });
+
+
                     </script>
                 </div>
 
@@ -435,16 +452,18 @@ and open the template in the editor.
             </section>
             <hr class="featurette-divider">
             <div class="row featurette">
-                <div class="col-md-7 ">
+                <div class="col-md-7 col-md-push-5 ">
 
                     <img class="logo" src="img/Bus-icon.jpg" alt="bus-station" width="250px;" height="250px;">
 
                     <h2 class="featurette-heading">รายชื่อสถานีขนส่งสาธารณะ. <span class="text-muted"></span></h2>
                     <p class="lead">รายชื่อสถานีขนส่งในเขตภาคตะวันออกเฉียงเหนือ.</p>
                 </div>
-                <div class="col-md-5 ">
-                    <div class="heading-location">
-                        สถานีต้นทาง - ปลายทาง
+                <div class="col-md-5 col-md-pull-7">
+                    <div class="notice-danger">
+                        <div class="heading-location">
+                            สถานีต้นทาง - ปลายทาง
+                        </div>
                     </div>
                     <select class="form-control " multiple="" style="height: 200px;">
                         <option>สถานีขนส่งจังหวัดขอนแก่น</option>
