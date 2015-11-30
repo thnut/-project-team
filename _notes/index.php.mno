@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <info>
 	<infoitem key="UD_Recordset1" value="name:b_name;datatype:string" />
-	<infoitem key="UD_Recordset2" value="name:name;datatype:blob" />
+	<infoitem key="UD_Recordset2" value="name:b_name;datatype:string,name:v_name;datatype:string" />
 	<infoitem key="UD_Bus" value="name:b_name;datatype:string" />
 	<infoitem key="UD_van" value="name:v_name;datatype:string" />
+	<infoitem key="UD_price" value="name:b_pric;datatype:int" />
+	<infoitem key="UD_busandvan" value="name:b_id;datatype:int,name:b_name;datatype:string,name:b_pric;datatype:int,name:b_km;datatype:int,name:bus_lat;datatype:string,name:bus_lon;datatype:string,name:bus_zoom;datatype:int,name:v_id;datatype:int,name:v_name;datatype:string,name:v_pric;datatype:int,name:v_km;datatype:int,name:van_lat;datatype:string,name:van_lon;datatype:string,name:van_zoom;datatype:int" />
+	<infoitem key="UD_bus" value="name:b_name;datatype:string,name:b_pric;datatype:int" />
 </info>
