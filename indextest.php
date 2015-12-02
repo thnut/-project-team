@@ -46,27 +46,6 @@ and open the template in the editor.
                             <input type = "radio" id = "robot_yes" name = "robot" /><label for = "robot_yes">Bus</label>
                             <input type = "radio" id = "robot_no" name = "robot" /><label for = "robot_no">Van</label>
                         </div>
-
-                        <div class="heading-location">
-                            <p>บริษัท รถขนส่งสาธารณะ </p>
-                        </div>
-                        
-                            <select class="form-control" name="namePlace" id="namePlace"  >
-
-                                <?php
-                                mysql_connect('localhost', 'root', '');
-                                mysql_select_db('final_project');
-                                mysql_query('SET NAMES UTF8');
-                                $sql = "select * from bus";
-                                $result = mysql_query($sql);
-                                while ($row = mysql_fetch_array($result)) {
-                                    echo "<option value='>" . $row['b_name'] . "'>" . $row['b_name'] . "</option>";
-                                }
-                                ?>
-                            </select>
-                         
-
-
                         <div class="heading-location">
                             <p>สถานีต้นทาง</p>
                         </div>
@@ -75,15 +54,13 @@ and open the template in the editor.
                             mysql_connect('localhost', 'root', '');
                             mysql_select_db('final_project');
                             mysql_query('SET NAMES UTF8');
-                            $sql = "select * from station";
+                            $sql = "select * from bus";
                             $result = mysql_query($sql);
                             while ($row = mysql_fetch_array($result)) {
-                                echo "<option value='>" . $row['station_name'] . "'>" . $row['station_name'] . "</option>";
+                                echo "<option value='>" . $row['b_name'] . "'>" . $row['b_name'] . "</option>";
                             }
                             ?>
                         </select>
-
-
                         <div class="heading-location">
                             <p>สถานีปลายทาง</p>
                         </div>
@@ -91,10 +68,10 @@ and open the template in the editor.
                             <?php
                             mysql_connect('localhost', 'root', '');
                             mysql_select_db('final_project');
-                            $sql = "select  station_name from station ORDER BY station_id DESC";
+                            $sql = "select  v_name from van ORDER BY v_id DESC";
                             $result = mysql_query($sql);
                             while ($row = mysql_fetch_array($result)) {
-                                echo "<option >" . $row['station_name'] . "</option>";
+                                echo "<option >" . $row['v_name'] . "</option>";
                             }
                             ?>
                         </select>
@@ -111,32 +88,37 @@ and open the template in the editor.
                 </div>      
 
 
-                 
+                <!--
                 <script>
 
                     $(document).ready(function () {
                         $("#SearchPlace").click(function () {
                             $("#map").show("slow");
-                            
+                            $("#directionsPanel").show("slow");
                         });
                     });
                 </script>
-                 
+                -->
 
 
                 <style>
-                
+                    #directionsPanel{  
+                        height: auto;
+                        width: 685px;
+                        clear:both;   
+                        background-color:#F1FEE9;  
+
+                    }  
 
                     #map {
                         height: 300px;
                         width: 680px;
-                        
+
                         clear: both;
 
                     }
                     .adp-placemark{  
-                        background-color: #999999;
-                        color: white;
+                        background-color:#9C3;  
 
                     }  
                     .adp-summary{  
@@ -144,17 +126,14 @@ and open the template in the editor.
                     }  
                     .adp-directions{  
                         text-align: center;
-                        width: 100%;
-
 
                     }  
                 </style>
 
 
                 <div id="map"></div>
-                <!--
                 <div id="directionsPanel"></div> 
-                -->
+
 
                 <script type="text/javascript">
                     var directionShow; // กำหนดตัวแปรสำหรับใช้งาน กับการสร้างเส้นทาง
@@ -171,7 +150,7 @@ and open the template in the editor.
                         // กำหนดจุดเริ่มต้นของแผนที่
                         my_Latlng = new GGM.LatLng(16.439651,102.833439);
                         // กำหนดตำแหน่งปลายทาง สำหรับการโหลดครั้งแรก
-                        initialTo = new GGM.LatLng(17.397467,102.794539);
+                        initialTo = new GGM.LatLng(17.397467,102.79453);
                         var my_mapTypeId = GGM.MapTypeId.ROADMAP; // กำหนดรูปแบบแผนที่ที่แสดง
                         // กำหนด DOM object ที่จะเอาแผนที่ไปแสดง ที่นี้คือ div id=map_canvas
                         var my_DivObj = $("#map")[0];
@@ -207,7 +186,7 @@ and open the template in the editor.
                                     position: pos,
                                     content: 'คุณอยู่ที่นี่.'
                                 });
-
+                                
                                 var my_Point = infowindow.getPosition();  // หาตำแหน่งของตัว marker เมื่อกดลากแล้วปล่อย  
                                 map.panTo(my_Point);  // ให้แผนที่แสดงไปที่ตัว marker         
                                 $("#lat_value").val(my_Point.lat());  // เอาค่า latitude ตัว marker แสดงใน textbox id=lat_value  
@@ -219,6 +198,7 @@ and open the template in the editor.
                             });
                         } else {
                             // คำสั่งทำงาน ถ้า บราวเซอร์ ไม่สนับสนุน ระบุตำแหน่ง  
+
                         }
 
                         $.ajax({

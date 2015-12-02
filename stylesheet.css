@@ -150,13 +150,7 @@ body {
 ///desktop
 @media (min-width: 992px)  {
 
-
-
-
-    #map_canvas { 
-        position:relative;
-        margin-top:180px;
-    }
+    
     /* css ของส่วนแสดงคำแนะนำเส้นทางการเดินทาง */
     #directionsPanel{
         width:auto;

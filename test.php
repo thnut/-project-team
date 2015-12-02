@@ -53,7 +53,7 @@
                 var my_DivObj = $("#map_canvas")[0];
                 // กำหนด Option ของแผนที่  
                 var myOptions = {
-                    zoom: 6, // กำหนดขนาดการ zoom  
+                    zoom: 15, // กำหนดขนาดการ zoom  
                     center: my_Latlng, // กำหนดจุดกึ่งกลาง  
                     mapTypeId: GGM.MapTypeId.ROADMAP, // กำหนดรูปแบบแผนที่  
                     mapTypeControlOptions: {// การจัดรูปแบบส่วนควบคุมประเภทแผนที่  

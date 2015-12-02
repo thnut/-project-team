@@ -9,27 +9,18 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 ?>  
 <markers>  
     <?php
-    $q = "SELECT * FROM bus ";
+    $q = "SELECT * FROM station ";
     $qr = mysql_query($q);
     while ($rs = mysql_fetch_array($qr)) {
         ?>  
-        <marker id="<?= $rs['b_id'] ?>">  
-            <name><?= $rs['b_name'] ?></name>  
-            <latitude><?= $rs['bus_lat'] ?></latitude>  
-            <longitude><?= $rs['bus_lon'] ?></longitude>  
+        <marker id="<?= $rs['station_id'] ?>">  
+            <name><?= $rs['station_name'] ?></name>  
+            <price><?= $rs['station_price'] ?></price>
+            <latitude><?= $rs['station_lat'] ?></latitude>  
+            <longitude><?= $rs['station_lon'] ?></longitude>  
         </marker>  
     <?php } ?>  
 
-    <?php
-    $q = "SELECT * FROM van ";
-    $qr = mysql_query($q);
-    while ($rs = mysql_fetch_array($qr)) {
-        ?>  
-        <marker id="<?= $rs['v_id'] ?>">  
-            <name><?= $rs['v_name'] ?></name>  
-            <latitude><?= $rs['van_lat'] ?></latitude>  
-            <longitude><?= $rs['van_lon'] ?></longitude>  
-        </marker>  
-    <?php } ?>  
+     
 </markers>
 
