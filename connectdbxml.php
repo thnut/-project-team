@@ -15,7 +15,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
         ?>  
         <marker id="<?= $rs['station_id'] ?>">  
             <name><?= $rs['station_name'] ?></name>  
-            <price><?= $rs['station_price'] ?></price>
+<!--            <price><?= $rs['cost_price'] ?></price>-->
             <latitude><?= $rs['station_lat'] ?></latitude>  
             <longitude><?= $rs['station_lon'] ?></longitude>  
         </marker>  
