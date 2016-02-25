@@ -264,7 +264,7 @@ and open the template in the editor.
                         $.ajax({
                             url: "connectdbxml.php", // ใช้ ajax ใน jQuery เรียกใช้ไฟล์ xml  
                             type: "GET", // ส่งค่าข้อมูลแบบ POST ไปที่ไฟล์ genMarker.php  
-                            //รับค่า จากการ submit ฟอร์ม ส่งไปค้นหาข้อมูล  
+                            data : {data_search :,//รับค่า จากการ submit ฟอร์ม ส่งไปค้นหาข้อมูล  
                             dataType: "xml",
                             success: function (xml) {
                                 //          console.log(xml);  

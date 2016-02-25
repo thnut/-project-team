@@ -1,28 +1,27 @@
-<?php  
-header("Content-type:text/html; charset=UTF-8");          
-header("Cache-Control: no-store, no-cache, must-revalidate");         
-header("Cache-Control: post-check=0, pre-check=0", false);         
+<?php    
+include("connectdb.php"); // เรียกใช้ไฟล์ ตั้งค่า และฟังก์ชั่น เกี่ยวกับฐานข้อมูล    
+$mysqli = connect(); // สร้าง ตัวแปร mysql instance สำหรับเรียกใช้งานฐานข้อมูล    
+// ส่วนแรก คือสำหรับแสดงผลข้อมูล    
+header("Content-type:application/json; charset=UTF-8");            
+header("Cache-Control: no-store, no-cache, must-revalidate");           
+header("Cache-Control: post-check=0, pre-check=0", false);   
+  
+$sql="SELECT * FROM station WHERE station_id  ";    
+$result = $mysqli->query($sql);    
+while($rs=$result->fetch_object()){    
+    $json_data[]=array(    
+        "id"=>$rs->station_id,    
+        "name"=>$rs->station_name,    
+        "latitude"=>$rs->station_lat,    
+        "longitude"=>$rs->station_lon    
+    );      
+}    
+  
+$json= json_encode($json_data);    
+if(isset($_GET['callback']) && $_GET['callback']!=""){    
+echo $_GET['callback']."(".$json.");";        
+}else{    
+echo $json;    
+}        
+exit;    
 ?>  
-<table width="300" border="0" cellspacing="2" cellpadding="0">  
-  <tr>  
-    <td width="10" rowspan="4">  
-    <img src="http://www.thetalentjungle.com/hospitality_blog/media/1/20080216-w-hotel-residences-doha.jpg"  
-     width="130" height="80">  
-    </td>  
-    <td width="10">&nbsp;</td>  
-    <td width="264">ชื่อสถานที่</td>  
-  </tr>  
-  <tr>  
-    <td>&nbsp;</td>  
-    <td>ที่ตั้ง </td>  
-  </tr>  
-  <tr>  
-    <td>&nbsp;</td>  
-    <td>รายละเอียด</td>  
-  </tr>  
-  <tr>  
-    <td>&nbsp;</td>  
-    <td><a href="http://www.thetalentjungle.com/hospitality_blog/media/1/20080216-w-hotel-residences-doha.jpg"  
-     target="_blank">ลิ้งค์อ่านเพิ่ม</a></td>  
-  </tr>  
-</table> 

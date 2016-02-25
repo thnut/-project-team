@@ -111,14 +111,14 @@ and open the template in the editor.
                                             }
                                             ?>
                                         </select>
-                                        <p><b>ราคา</b></p>
-                                        <input type="text" class="form-control" placeholder="Price" value="50 $" > 
+<!--                                        <p><b>ราคา</b></p>-->
+<!--                                        <input type="text" class="form-control" placeholder="Price" value="50 $" > -->
                                         <ul class="actions">
                                             <input type="submit" name="bt_search" id="bt_search" value="Search" />   
                                         </ul>
                                     </form>
 
-                                    <!----------------------------- ส่วนของ รถตู้ ------------------------------------->
+                                   <!--   ส่วนของ รถตู้  -->
 
                                     <form id="register-form"  method="post" role="form" style="display: none;">
                                         <div id="showDD" style="margin:auto;padding-top:5px;">    
@@ -136,19 +136,7 @@ and open the template in the editor.
                                             </select>
                                             <div id="form_search_data">  
                                                 <form id="form_search_map_data" name="form_search_map_data" method="post" action="">  
-                                                    <p><b>จุดต้นทาง</b><p>
-                                                        <select class="form-control" name="data_search" id="data_search" value="<?= $_POST['data_search'] ?>"/>
-                                                        <?php
-                                                        mysql_connect('localhost', 'root', '');
-                                                        mysql_select_db('final_project');
-                                                        mysql_query('SET NAMES UTF8');
-                                                        $sql = "select * FROM station WHERE station_type LIKE '%van%' Order by station_id DESC ";
-                                                        $result = mysql_query($sql);
-                                                        while ($row = mysql_fetch_array($result)) {
-                                                            echo "<option value=" . $row['station_name'] . ">" . $row['station_name'] . "</option>";
-                                                        }
-                                                        ?>
-                                                        </select>
+                                                 
 
                                                     <p><b>จุดระหว่างทาง</b></p>
                                                     <select multiple id="data_search" value="<?= $_POST['data_search'] ?> "/>
@@ -178,24 +166,18 @@ and open the template in the editor.
                                             </div>  
                                         </div> 
                                     </form>
-                                    <form id="login-form"  method="post" role="form" style="display: none;">
-
-                                    </form>
-
                                 </div>
 
-                                 
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
                 </div>
                 <div id="map_canvas"></div> 
         </div>
-        
 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>      
+
         <script type="text/javascript">
             var infowindow = []; // กำหนดตัวแปรสำหรับเก็บตัว popup แสดงรายละเอียดสถานที่  
             var infowindowTmp; // กำหนดตัวแปรสำหรับเก็บลำดับของ infowindow ที่เปิดล่าสุด  
@@ -234,7 +216,7 @@ and open the template in the editor.
                             var markerLatLng = new GGM.LatLng(markerLat, markerLng);
                             my_Marker[i] = new GGM.Marker({// สร้างตัว marker เป็นแบบ array  
                                 position: markerLatLng, // กำหนดไว้ที่เดียวกับจุดกึ่งกลาง 
-                                zoom : 9,
+                                zoom: 9,
                                 map: map, // กำหนดว่า marker นี้ใช้กับแผนที่ชื่อ instance ว่า map  
                                 title: markerName // แสดง title เมื่อเอาเมาส์มาอยู่เหนือ  
                             });
@@ -288,6 +270,8 @@ and open the template in the editor.
 
 
 
+
+
             $(function () {
                 // โหลด สคริป google map api เมื่อเว็บโหลดเรียบร้อยแล้ว  
                 // ค่าตัวแปร ที่ส่งไปในไฟล์ google map api  
@@ -302,7 +286,7 @@ and open the template in the editor.
                 }).appendTo("body");
             });
         </script>    
-        <!-- Footer -->
+        <!-- Footer 
         <footer id="footer">
             <ul class="copyright">
                 <li>&copy; </li>
