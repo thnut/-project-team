@@ -8,25 +8,27 @@
         <title>Query Database</title>
     </head>
     <body>
-        <h1>2 - 10 </h1>
+        <h1>2 => 10 </h1>
         <p>
                 <?php
                 function search($node) {
                     $i = 0;
+                    $next = array();
                     while ($i < count($node) ){                    
                         //echo $node[$i]."</br>";
-                        $next = array();
+                        
                         $next_re = array();
-                        $sql = "select * from cost where startstation_id=".$node[$i];
+                        $sql = "select * from cost where endstation_id=".$node[$i];
                         $result = mysql_query($sql);
                         while ($row = mysql_fetch_array($result)) {
-                            array_push($next, $row['endstation_id']);
-                            echo $row["startstation_id"]."=>".$row["endstation_id"];
-                            echo "</br>";
+                            array_push($next, $row['startstation_id']);
+//                            echo $row["endstation_id"]."<=".$row["startstation_id"];
+//                            echo "</br>";
 //                            $next_re = array(
-//                                'startstation_id' => $row['startstation_id'],
-//                                'endstation_id' => $row['endstation_id']
+//                                'start' => $row['startstation_id'],
+//                                'end' => $row['endstation_id']
 //                            );
+//                            array_push($next, $next_re);
                         }
                         
                         $i++;
@@ -34,20 +36,21 @@
                     }
                     return $next;
                 }
-                
+//                ----------------------------------------------------------------------------------
                 $node = array();
-                $sql = "select * from cost where startstation_id=2";
+                $sql = "select * from cost where endstation_id=10";
                 $result = mysql_query($sql);
                 while ($row = mysql_fetch_array($result)) {
-                    echo $row["startstation_id"]."=>".$row["endstation_id"];
+                    echo $row["endstation_id"]."<=".$row["startstation_id"];
                     echo "</br>";
-                    array_push($node, $row["endstation_id"]);
+                    array_push($node, $row["startstation_id"]);
                 }
-                //print_r($node);
+                print_r($node);
                 echo "</br>";
                 $next_r = search($node);
+                
                 echo '<pre>';
-                print_r($next_r);
+                    print_r($next_r);
                 echo '</pre>';
                 ?>
         

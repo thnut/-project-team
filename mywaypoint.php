@@ -170,16 +170,48 @@ if(empty($rowCheck)==FALSE){
 }
 
 ?>
-
+                
+//
                 var my_waypoint = new GGM.LatLng(16.432958, 102.824392);
                 var my_waypoint2 = new GGM.LatLng(16, 100);
-                 var my_waypoint3 = new GGM.LatLng(15, 100);
-                var my2waypoint = new Array();
-                my2waypoint[0] = new Array(16, 100);
-                my2waypoint[1] = new Array(15, 100);
+                var my_waypoint3 = new GGM.LatLng(15, 100);
+                var my2waypoint = [];
                 
-                origin = new GGM.LatLng(<?php echo $place_sta['lat']; ?>, <?php echo $place_sta['lon']; ?>); // ให้ตำแหน่งจุดเริ่มต้น เท่ากับจุดที่คลิกในแผนที่  
-                destination = new GGM.LatLng(<?php echo $place_end['lat'] ?>, <?php echo $place_end['lon'] ?>);
+                $.ajax({ 
+                    url: "testDis.php" ,
+                    type: "GET",
+                    data:({
+                        start:2,
+                        end:10,
+                    }),
+                    datatype: "json",
+                }).success(function(result) { 
+                    var obj = jQuery.parseJSON(result);
+                    var size = obj.length;
+                    for(var i=0;i<size-1;i++){
+                        if(i == 0){
+                            var origin_place = obj[i];
+                            var origin_place_Lat = origin_place['start']['station_lat'];
+                            var origin_place_Lng = origin_place['start']['station_lon'];
+                            origin = new GGM.LatLng(origin_place_Lat,origin_place_Lng);
+                        }else if(i == size-1){
+                            var destination_place = obj[i];
+                            var destination_place_Lat = destination_place['end']['station_lat'];
+                            var destination_place_Lng = destination_place['end']['station_lon'];
+                            destination = new GGM.LatLng(destination_place_Lat,destination_place_Lng);
+                        }else{
+                            var place = obj[i];
+                            var place_lat = place['end']['station_lat'];
+                            var place_lng = place['end']['station_lon'];
+                            var latlng = [place_lat,place_lng];
+                            my2waypoint.push(latlng);
+                        }
+                    }
+                    console.log(destination);              
+		});
+         
+//                origin = new GGM.LatLng(<?php // echo $place_sta['lat']; ?>, <?php // echo $place_sta['lon']; ?>); // ให้ตำแหน่งจุดเริ่มต้น เท่ากับจุดที่คลิกในแผนที่  
+//                destination = new GGM.LatLng(<?php // echo $place_end['lat'] ?>, <?php // echo $place_end['lon'] ?>);
                 // ให้ตำแหน่งจุดปลายทาง เท่ากับจุดที่คลิกในแผนที่  
 
 
