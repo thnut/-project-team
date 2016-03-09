@@ -26,22 +26,7 @@ and open the template in the editor.
         <!-- Wrapper -->
         <div id="wrapper">
             <!-- Main -->
-            <style type="text/css">    
-                html { height: 100% }    
-                body {     
-                    height:100%;    
-                    margin:0;padding:0;    
-                    font-family:tahoma, "Microsoft Sans Serif", sans-serif, Verdana;    
-                    font-size:12px;    
-                }    
-                /* css กำหนดความกว้าง ความสูงของแผนที่ */    
-                #map {     
-                    width:800px;    
-                    height:400px;    
-                    margin:auto;    
-                    margin-top:50px;    
-                }    
-            </style> 
+          
             <section id="main">
                 <nav style="margin-bottom: 20px;">
                     <a href="index.php">Home</a>
@@ -51,54 +36,7 @@ and open the template in the editor.
                 </nav>
 
                 <hr />
-                <div class="content">
-                    <div>  
-                        <div id="map"></div>    
-
-                    </div>   
-                </div>      
-
-            </section>
-
-
-
-
-            <script type="text/javascript">
-                function initMap() {
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        center: {lat: -34.397, lng: 150.644},
-                        zoom: 6
-                    });
-                    var infoWindow = new google.maps.InfoWindow({map: map});
-
-                    // Try HTML5 geolocation.
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(function (position) {
-                            var pos = {
-                                lat: position.coords.latitude,
-                                lng: position.coords.longitude
-                            };
-
-                            infoWindow.setPosition(pos);
-                            infoWindow.setContent('Location found.');
-                            map.setCenter(pos);
-                        }, function () {
-                            handleLocationError(true, infoWindow, map.getCenter());
-                        });
-                    } else {
-                        // Browser doesn't support Geolocation
-                        handleLocationError(false, infoWindow, map.getCenter());
-                    }
-                }
-
-                function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent(browserHasGeolocation ?
-                            'Error: The Geolocation service failed.' :
-                            'Error: Your browser doesn\'t support geolocation.');
-                }
-            </script>
-
+                
             <!-- Footer -->
             <footer id="footer">
                 <ul class="copyright">
