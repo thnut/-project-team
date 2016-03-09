@@ -1,85 +1,99 @@
-<?php require_once("connect.php");//เรียกใช้ไฟล์การเชื่อมต่อDATABASE SERVERและฐานข้อมูล
-$limit=5;//กำหนดข้อมูลที่จะแสดงในหนึ่งหน้า
-if (isset($_GET['page'])){
-    $page = $_GET['page'];
-} else {
-    $page = 0;
-}
-$sql = "SELECT COUNT(*) AS num_rows FROM station";//เรียกข้อมูลจากฐานข้อมูลมาใช้งานและนับข้อมูลในฐานข้อมูล
-$re = mysql_query($sql);
-$num_rows = mysql_result($re ,0, 'num_rows');
-$sum_page = ceil($num_rows/$limit);
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>แสดงข้อมูล</title>
-</head>
-
-<body>
-<p>
- <?php 
-    if(!$page or $page==1){
-        $page=0;
-    } else{ 
-        $page=($page *$limit)-$limit;
-    }
-    $link="";
-    for($i=1;$i<=$sum_page;$i++) { 
-        $link.="[<a href='?page=$i'>".$i."</a>]";
-    }//การส่งค่าแบบ GET
-    
-    echo $link="หน้า : ".$link;
-    $sql = "SELECT * FROM test limit $page,$limit";
-    $re = mysql_query($sql);//การเรียกใช้ข้อมูลจากฐานข้อมูลมาใช้งานโดยกำหนดค่าการเรียกใช้
-
-?>
-</p>
-<table width="100%" height="50" border="0.5" align="center" >
-  <tr bgcolor="#FF6699">
-    
-    <td width="82"><div align="center">ชื่อร้าน/สวน</div></td>
-    <td width="168"><div align="center">ชื่อร้าน/สวน (ภาษาอังกฤษ)</div></td>
-    <td width="210"><div align="center">รายละเอียดเกี่ยวกับร้านหรือสวน</div></td>
-    <td width="42"><div align="center">ที่อย</div></td>
-    <td width="45"><div align="center">จังหวัด</div></td>
-    <td width="60"><div align="center">โทรศัพท์</div></td>
-    <td width="25"><div align="center">Fax</div></td>
-    <td width="54"><div align="center">Website</div></td>
-    <td width="51"><div align="center">ชื่อ-สกุล</div></td>
-    <td width="26"><div align="center">เพศ</div></td>
-    <td width="47"><div align="center">E-mail</div></td>
-    <td width="95"><div align="center">เบอร์โทรศัพท์</div></td>
-    <td width="76"><div align="center">เบอร์มือถือ</div></td>
-    <td width="91"><div align="center">แก้ไขข้อมูล</div></td>
-    <td width="91"><div align="center">ลบข้อมูล</div></td>
-  </tr>
- 
 <?php
-    while($row= mysql_fetch_assoc($re))// คำสั่งให้แสดงข้อมูล
+class PriorityQueue extends SplPriorityQueue
+{
+    public function compare( $priority1, $priority2 )
     {
-        echo"<tr bgcolor='#FFCCCC'>";
-        echo "<td>$row[nameth]</td>";
-        echo "<td>$row[nameeg]</td>";
-        echo "<td>$row[detail]</td>";
-        echo "<td>$row[address]</td>";
-        echo "<td>$row[province]</td>";
-        echo "<td>$row[tel1]</td>";
-        echo "<td>$row[fax]</td>";
-        echo "<td>$row[webs]</td>";
-        echo "<td>$row[name]</td>";
-        echo "<td>$row[gender]</td>";
-        echo "<td>$row[email]</td>";
-        echo "<td>$row[tel2]</td>";
-        echo "<td>$row[mobile]</td>";
-        echo"<td><center><a href ='edit.php?show_id=$row[Id]'>แก้ไข </a></center></td>";//ลิงค์และส่งค่าเพื่อไปแก้ไขข้อมูล
-        echo"<td><center><a href = 'delete.php?delete_id=$row[Id]' onclick=\"return confirm('คุณต้องการลบข้อมูล!!!!')\"> delete</a></center></td>";//ลิงค์และส่งค่าข้อูมูลเพื่อทำการลบข้อมูล
-        echo"</tr>";
+        if ($priority1 === $priority2) return 0;
+        return $priority1 < $priority2 ? 1 : -1;
     }
-mysql_close();
-?>
-</table>
-<p>&nbsp;</p>
-</body>
-</html>
+}
+class Graph
+{
+  private $verticies;
+	function __construct()
+	{
+		$this->verticies = array();
+	}
+	public function add_vertex( $name, $edges )
+	{
+		$this->verticies[ $name ] = $edges;
+	}
+	public function shortest_path( $start, $finish )
+	{
+		$distances = array();
+		$previous = array();
+		$nodes = new PriorityQueue();
+		foreach ( $this->verticies AS $vertex => $value )
+		{
+			if ( $vertex === $start )
+			{
+				$distances[ $vertex ] = 0;
+				$nodes->insert( $vertex, 0 );
+			}
+			else
+			{
+				$distances[ $vertex ] = PHP_INT_MAX;
+				$nodes->insert( $vertex, PHP_INT_MAX );
+			}
+			$previous[ $vertex ] = null;
+		}
+		$nodes->top();
+		while ( $nodes->valid() )
+		{
+			$smallest = $nodes->current();
+			if ( $smallest === $finish )
+			{
+				$path = array();
+				while ( $previous[ $smallest ] )
+				{
+					$path[] = $smallest;
+					$smallest = $previous[ $smallest ];
+				}
+				$path[] = $start;
+				return array_reverse( $path );
+			}
+			if ( $smallest === null || $distances[ $smallest ] === PHP_INT_MAX )
+			{
+				break;
+			}
+			foreach ( $this->verticies[ $smallest ] AS $neighbor => $value )
+			{
+				$alt = $distances[ $smallest ] + $this->verticies[ $smallest ][ $neighbor ];
+				if ( $alt < $distances[ $neighbor ] )
+				{
+					$distances[ $neighbor ] = $alt;
+					$previous[ $neighbor ] = $smallest;
+					$nodes->insert( $neighbor, $alt );
+				}
+			}
+			$nodes->next();
+		}
+		return $distances;
+	}
+	public function __toString()
+	{
+		return print_r( $this->verticies, true );
+	}
+}
+$graph = new Graph();
+$graph->add_vertex( 'A', array( 'B' => 7, 'C' => 8 ) );
+$graph->add_vertex( 'B', array( 'A' => 7, 'F' => 2 ) );
+$graph->add_vertex( 'C', array( 'A' => 8, 'F' => 6, 'G' => 4 ) );
+$graph->add_vertex( 'D', array( 'F' => 8 ) );
+$graph->add_vertex( 'E', array( 'H' => 1 ) );
+$graph->add_vertex( 'F', array( 'B' => 2, 'C' => 6, 'D' => 8, 'G' => 9, 'H' => 3 ) );
+$graph->add_vertex( 'G', array( 'C' => 4, 'F' => 9 ) );
+$graph->add_vertex( 'H', array( 'E' => 1, 'F' => 3 ) );
+
+//$graph->add_vertex( '1', array( '2' => 7, '3' => 8 ) );
+//$graph->add_vertex( '2', array( '1' => 7, '6' => 2 ) );
+//$graph->add_vertex( '3', array( '2' => 8, '6' => 6, '7' => 4 ) );
+//$graph->add_vertex( '4', array( '6' => 8 ) );
+//$graph->add_vertex( '5', array( '8' => 1 ) );
+//$graph->add_vertex( '6', array( '2' => 2, '3' => 6, '4' => 8, '7' => 9, '8' => 3 ) );
+//$graph->add_vertex( '7', array( '3' => 4, '6' => 9 ) );
+//$graph->add_vertex( '8', array( '5' => 1, '6' => 3 ) );
+
+echo '<pre>';
+print_r($graph->shortest_path('A', 'H'));
+echo '</pre>';

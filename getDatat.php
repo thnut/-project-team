@@ -5,8 +5,8 @@
                     url: "testDis.php" ,
                     type: "GET",
                     data:({
-                        start:2,
-                        end:10,
+                        start:1,
+                        end:15,
                     }),
                     datatype: "json",
                 }).success(function(result) { 
