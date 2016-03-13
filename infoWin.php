@@ -1,124 +1,271 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"   
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
-<html xmlns="http://www.w3.org/1999/xhtml">  
-<head>  
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
-<title>Google Map API 3 - 01</title>  
-<style type="text/css">  
-html { height: 100% }  
-body {   
-    height:100%;  
-    margin:0;padding:0;  
-    font-family:tahoma, "Microsoft Sans Serif", sans-serif, Verdana;  
-    font-size:12px;  
-}  
-/* css กำหนดความกว้าง ความสูงของแผนที่ */  
-#map_canvas {   
-    width:450px;  
-    height:500px;  
-    margin:auto;  
-    margin-top:50px;  
-}  
-</style>  
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps JavaScript API v3 Example: Directions Waypoints (LatLng)</title>
+<style type="text/css">
+html { height: 100% }
+body { height: 100%; margin: 0px; padding: 0px }
+</style>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+  var directionDisplay;
+  var directionsService = new google.maps.DirectionsService();
+      var gmarkers = [];
+      var map = null;
+      var startLocation = null;
+      var endLocation = null;
+      var directionsService = null;
+      var waypts = null;
+      var polyline = new google.maps.Polyline({
+	path: [],
+	strokeColor: '#FF0000',
+	strokeWeight: 3
+      });
+
+  function initialize() {
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+    var myOptions = {
+      zoom: 6,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: chicago
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  google.maps.event.addListener(map, 'click', function() {
+        infowindow.close();
+        });
+    directionsDisplay.setMap(map);
+    calcRoute();
+  }
   
-  
-</head>  
-  
-<body>  
-   <!-- search  -->
-  <div id="form_search_data">  
-      <form id="form_search_map_data" name="form_search_map_data" method="post" action="">  
-        <input type="text" name="data_search" id="data_search" value="<?=$_POST['data_search']?>" style="width:300px;" />  
-        <input type="submit" name="bt_search" id="bt_search" value="Search" />  
-      </form>  
-    </div>  
-  <div id="map_canvas"></div>
-  <!--................-->
-   
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  
-<script type="text/javascript">  
-var map; // กำหนดตัวแปร map ไว้ด้านนอกฟังก์ชัน เพื่อให้สามารถเรียกใช้งาน จากส่วนอื่นได้  
-var infowindow=[]; // กำหนดตัวแปรสำหรับเก็บตัว popup แสดงรายละเอียดสถานที่  
-var infowindowTmp; // กำหนดตัวแปรสำหรับเก็บลำดับของ infowindow ที่เปิดล่าสุด  
-var my_Marker=[]; // กำหนดตัวแปรสำหรับเก็บตัว marker เป็นตัวแปร array  
-var GGM; // กำหนดตัวแปร GGM ไว้เก็บ google.maps Object จะได้เรียกใช้งานได้ง่ายขึ้น  
-function initialize() { // ฟังก์ชันแสดงแผนที่  
-    GGM=new Object(google.maps); // เก็บตัวแปร google.maps Object ไว้ในตัวแปร GGM  
-    // กำหนดจุดเริ่มต้นของแผนที่  
-    var my_Latlng  = new GGM.LatLng(13.761728449950002,100.6527900695800);  
-    // กำหนด DOM object ที่จะเอาแผนที่ไปแสดง ที่นี้คือ div id=map_canvas  
-    var my_DivObj=$("#map_canvas")[0];   
-    // กำหนด Option ของแผนที่  
-    var myOptions = {  
-        zoom: 5, // กำหนดขนาดการ zoom  
-        center: my_Latlng , // กำหนดจุดกึ่งกลาง  
-        mapTypeId:GGM.MapTypeId.ROADMAP, // กำหนดรูปแบบแผนที่  
-        mapTypeControlOptions:{ // การจัดรูปแบบส่วนควบคุมประเภทแผนที่  
-            position:GGM.ControlPosition.TOP, // จัดตำแหน่ง  
-            style:GGM.MapTypeControlStyle.DROPDOWN_MENU // จัดรูปแบบ style   
-        }  
-    };  
-    map = new GGM.Map(my_DivObj,myOptions);// สร้างแผนที่และเก็บตัวแปรไว้ในชื่อ map  
-      
-    $.ajax({ 
-        //----------------- รับค่าจาก search
-        url:"genMarker.php", // ใช้ ajax ใน jQuery เรียกใช้ไฟล์ xml  
-        type: "GET", // ส่งค่าข้อมูลแบบ POST ไปที่ไฟล์ genMarker.php  
-        data: { data_search : "<?=$_POST['data_search']?>"}, //รับค่า จากการ submit ฟอร์ม ส่งไปค้นหาข้อมูล  
-        dataType: "xml",
-        //------------------------------------------------
-        success:function(xml){  
-            $(xml).find('marker').each(function(i){ // วนลูปดึงค่าข้อมูลมาสร้าง marker    
-                var markerID=$(this).find("id").text();// นำค่าต่างๆ มาเก็บไว้ในตัวแปรไว้ใช้งาน      
-                var markerName=$(this).find("name").text();// นำค่าต่างๆ มาเก็บไว้ในตัวแปรไว้ใช้งาน      
-                var markerLat=$(this).find("latitude").text();// นำค่าต่างๆ มาเก็บไว้ในตัวแปรไว้ใช้งาน      
-                var markerLng=$(this).find("longitude").text(); // นำค่าต่างๆ มาเก็บไว้ในตัวแปรไว้ใช้งาน                  
-                
-                var markerLatLng=new GGM.LatLng(markerLat,markerLng);  
-                my_Marker[i] = new GGM.Marker({ // สร้างตัว marker เป็นแบบ array  
-                    position:markerLatLng,  // กำหนดไว้ที่เดียวกับจุดกึ่งกลาง  
-                    map: map, // กำหนดว่า marker นี้ใช้กับแผนที่ชื่อ instance ว่า map  
-                    title:markerName // แสดง title เมื่อเอาเมาส์มาอยู่เหนือ  
-                });  
-                //  กรณีตัวอย่าง ดึง title ของตัว marker มาแสดง  
-                infowindow[i] = new GGM.InfoWindow({// สร้าง infowindow ของแต่ละ marker เป็นแบบ array  
-                    content: my_Marker[i].getTitle() // ดึง title ในตัว marker มาแสดงใน infowindow  
-                });  
-//              //  กรณีนำไปประยุกต์ ดึงข้อมูลจากฐานข้อมูลมาแสดง  
-//              infowindow[i] = new GGM.InfoWindow({     
-//                  content:$.ajax({     
-//                      url:'placeDetail.php',//ใช้ ajax ใน jQuery ดึงข้อมูล     
-//                      data:'placeID='+markerID,// ส่งค่าตัวแปร ไปดึงข้อมูลจากฐานข้อมูล  
-//                      async:false     
-//                  }).responseText     
-//              });               
-                  
-                GGM.event.addListener(my_Marker[i], 'click', function(){ // เมื่อคลิกตัว marker แต่ละตัว  
-                    if(infowindowTmp){ // ให้ตรวจสอบว่ามี infowindow ตัวไหนเปิดอยู่หรือไม่  
-                        infowindow[infowindowTmp].close();  // ถ้ามีให้ปิด infowindow ที่เปิดอยู่  
-                    }  
-                    infowindow[i].open(map,my_Marker[i]); // แสดง infowindow ของตัว marker ที่คลิก  
-                    infowindowTmp=i; // เก็บ infowindow ที่เปิดไว้อ้างอิงใช้งาน  
-                });           
-            });  
-        }     
-    });       
-  
-}  
-  
-$(function(){  
-    // โหลด สคริป google map api เมื่อเว็บโหลดเรียบร้อยแล้ว  
-    // ค่าตัวแปร ที่ส่งไปในไฟล์ google map api  
-    // v=3.2&sensor=false&language=th&callback=initialize  
-    //  v เวอร์ชัน่ 3.2  
-    //  sensor กำหนดให้สามารถแสดงตำแหน่งทำเปิดแผนที่อยู่ได้ เหมาะสำหรับมือถือ ปกติใช้ false  
-    //  language ภาษา th ,en เป็นต้น  
-    //  callback ให้เรียกใช้ฟังก์ชันแสดง แผนที่ initialize  
-    $("<script/>", {  
-      "type": "text/javascript",  
-      src: "http://maps.google.com/maps/api/js?v=3.2&sensor=false&language=th&callback=initialize"  
-    }).appendTo("body");      
-});  
-</script>    
-</body>  
+  function calcRoute() {
+	directionsService = new google.maps.DirectionsService(); 
+
+    var request = {
+        origin: "1521 NW 54th St, Seattle, WA 98107 ",
+        destination: "San Diego, CA",
+        waypoints: [{
+            location:new google.maps.LatLng(42.496403,-124.413128),
+          stopover:true}],
+        optimizeWaypoints: true,
+        travelMode: google.maps.DirectionsTravelMode.WALKING
+    };
+    directionsService.route(request, RenderCustomDirections);
+  }
+function RenderCustomDirections(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        waypts = [];
+        var bounds = new google.maps.LatLngBounds();
+        var route = response.routes[0];
+        var summaryPanel = document.getElementById("directions_panel");
+        var detailsPanel = document.getElementById("direction_details");
+        startLocation = new Object();
+        endLocation = new Object();
+
+        summaryPanel.innerHTML = "";
+        detailsPanel.innerHTML = '<ul>';
+
+        // For each route, display summary information.
+        for (var i = 0; i < route.legs.length; i++) {
+          var routeSegment = i + 1;
+          summaryPanel.innerHTML += "<b>Route Segment: " + routeSegment + "</b><br />";
+          summaryPanel.innerHTML += route.legs[i].start_address + " to ";
+          summaryPanel.innerHTML += route.legs[i].end_address + "<br />";
+          summaryPanel.innerHTML += route.legs[i].distance.text + "<br /><br />";
+        }
+	var path = response.routes[0].overview_path;
+	var legs = response.routes[0].legs;
+// alert("processing "+legs.length+" legs");
+        for (i=0;i<legs.length;i++) {
+          if (i == 0) { 
+            startLocation.latlng = legs[i].start_location;
+            startLocation.address = legs[i].start_address;
+            startLocation.marker = createMarker(legs[i].start_location,"start",legs[i].start_address,"green");
+          } else { 
+            waypts[i] = new Object();
+            waypts[i].latlng = legs[i].start_location;
+            waypts[i].address = legs[i].start_address;
+            waypts[i].marker = createMarker(legs[i].start_location,"waypoint"+i,legs[i].start_address,"yellow");
+          }
+          endLocation.latlng = legs[i].end_location;
+          endLocation.address = legs[i].end_address;
+          var steps = legs[i].steps;
+// alert("processing "+steps.length+" steps");
+          for (j=0;j<steps.length;j++) {
+            var nextSegment = steps[j].path;
+/*
+            detailsPanel.innerHTML += "<li>"+steps[j].instructions;
+            var dist_dur = "";
+            if (steps[j].distance && steps[j].distance.text) dist_dur += "&nbsp;"+steps[j].distance.text;
+            if (steps[j].duration && steps[j].duration.text) dist_dur += "&nbsp;"+steps[j].duration.text;
+            if (dist_dur != "") {
+              detailsPanel.innerHTML += "("+dist_dur+")<br /></li>";
+            } else {
+              detailsPanel.innerHTML += "</li>";
+
+            }
+*/
+            for (k=0;k<nextSegment.length;k++) {
+              polyline.getPath().push(nextSegment[k]);
+              bounds.extend(nextSegment[k]);
+
+
+
+            }
+          }
+        }
+
+        detailsPanel.innerHTML += "</ul>"
+        polyline.setMap(map);
+        map.fitBounds(bounds);
+        endLocation.marker = createMarker(endLocation.latlng,"end",endLocation.address,"red");
+        // == create the initial sidebar ==
+        makeSidebar();
+                                                
+      }
+else alert(status);
+    }
+
+var icons = new Array();
+icons["red"] = new google.maps.MarkerImage("mapIcons/marker_red.png",
+      // This marker is 20 pixels wide by 34 pixels tall.
+      new google.maps.Size(20, 34),
+      // The origin for this image is 0,0.
+      new google.maps.Point(0,0),
+      // The anchor for this image is at 9,34.
+      new google.maps.Point(9, 34));
+function getMarkerImage(iconColor) {
+   if ((typeof(iconColor)=="undefined") || (iconColor==null)) { 
+      iconColor = "red"; 
+   }
+   if (!icons[iconColor]) {
+      icons[iconColor] = new google.maps.MarkerImage("mapIcons/marker_"+ iconColor +".png",
+      // This marker is 20 pixels wide by 34 pixels tall.
+      new google.maps.Size(20, 34),
+      // The origin for this image is 0,0.
+      new google.maps.Point(0,0),
+      // The anchor for this image is at 6,20.
+      new google.maps.Point(9, 34));
+   } 
+   return icons[iconColor];
+
+}
+  // Marker sizes are expressed as a Size of X,Y
+  // where the origin of the image (0,0) is located
+  // in the top left of the image.
+ 
+  // Origins, anchor positions and coordinates of the marker
+  // increase in the X direction to the right and in
+  // the Y direction down.
+
+  var iconImage = new google.maps.MarkerImage('mapIcons/marker_red.png',
+      // This marker is 20 pixels wide by 34 pixels tall.
+      new google.maps.Size(20, 34),
+      // The origin for this image is 0,0.
+      new google.maps.Point(0,0),
+      // The anchor for this image is at 9,34.
+      new google.maps.Point(9, 34));
+  var iconShadow = new google.maps.MarkerImage('http://www.google.com/mapfiles/shadow50.png',
+      // The shadow image is larger in the horizontal dimension
+      // while the position and offset are the same as for the main image.
+      new google.maps.Size(37, 34),
+      new google.maps.Point(0,0),
+      new google.maps.Point(9, 34));
+      // Shapes define the clickable region of the icon.
+      // The type defines an HTML &lt;area&gt; element 'poly' which
+      // traces out a polygon as a series of X,Y points. The final
+      // coordinate closes the poly by connecting to the first
+      // coordinate.
+  var iconShape = {
+      coord: [9,0,6,1,4,2,2,4,0,8,0,12,1,14,2,16,5,19,7,23,8,26,9,30,9,34,11,34,11,30,12,26,13,24,14,21,16,18,18,16,20,12,20,8,18,4,16,2,15,1,13,0],
+      type: 'poly'
+  };
+var infowindow = new google.maps.InfoWindow(
+  { 
+    size: new google.maps.Size(150,50)
+  });
+    
+function createMarker(latlng, label, html, color) {
+// alert("createMarker("+latlng+","+label+","+html+","+color+")");
+    var contentString = '<b>'+label+'</b><br>'+html;
+    var marker = new google.maps.Marker({
+        position: latlng,
+        draggable: true, 
+        map: map,
+        shadow: iconShadow,
+        icon: getMarkerImage(color),
+        shape: iconShape,
+        title: label,
+        zIndex: Math.round(latlng.lat()*-100000)<<5
+        });
+        marker.myname = label;
+        gmarkers.push(marker);
+
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(contentString); 
+        infowindow.open(map,marker);
+        });
+    google.maps.event.addListener(marker, 'dragend', function() {
+// alert("drag ended! start:"+startLocation.marker.getPosition()+" end:"+endLocation.marker.getPosition());
+var request = { 
+	origin: startLocation.marker.getPosition(), 
+	destination: endLocation.marker.getPosition(), 
+	travelMode: google.maps.DirectionsTravelMode.WALKING 
+	}; 
+startLocation.marker.setMap(null);
+endLocation.marker.setMap(null);
+
+gmarkers = [];
+polyline.setMap(null);
+polyline = new google.maps.Polyline({
+		path: [],
+		strokeColor: '#FF0000',
+		strokeWeight: 3
+	});
+    directionsService.route(request, RenderCustomDirections);
+
+        });
+				
+        return marker;
+}
+      function myclick(i) {
+        google.maps.event.trigger(gmarkers[i],"click");
+      }
+      // == rebuilds the sidebar to match the markers currently displayed ==
+      function makeSidebar() {
+        var html = "";
+        for (var i=0; i<gmarkers.length; i++) {
+            html += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+        }
+        document.getElementById("side_bar").innerHTML = html;
+      }
+    //]]>
+</script>
+		
+		<style type="text/css">
+			html { height: 100% }
+			body { height: 100%; margin: 0px; padding: 0px }
+			#map_canvas { height: 100% }
+		</style>
+</head>
+<body onload="initialize()">
+<div id="map_canvas" style="float:left;width:70%;height:100%;"></div>
+<div id="control_panel" style="float:right;width:30%;text-align:left;padding-top:20px">
+<table border="1"><tr><td>
+<div id="directions_panel" style="margin:20px;background-color:#FFEE77;"></div>
+</td></tr><tr><td>
+<div id="direction_details" style="margin:20px;"></div>
+</td></tr><tr><td>
+<div id="side_bar" style="margin:20px;"></div>
+</td></tr></table>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"> 
+</script> 
+<script type="text/javascript"> 
+_uacct = "UA-162157-1";
+urchinTracker();
+</script> 
+</body>
 </html>
