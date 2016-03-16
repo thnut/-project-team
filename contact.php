@@ -22,7 +22,14 @@ and open the template in the editor.
         <script type="text/javascript" src="main.js"></script>
     </head>
     <body class="is-loading">
-
+        <div id='cssmenu'>
+            <ul>
+                <li class="active"><a href='index.php'><span>Home</span></a></li>
+                <li><a href='from.php'><span>Cars</span></a></li>
+                <li><a href='maps.php'><span>Station</span></a></li>
+                <li class='last'><a href='contact.php'><span>Contact</span></a></li>
+            </ul>
+        </div>
         <!-- Wrapper -->
         <div id="wrapper">
             <!-- Main -->

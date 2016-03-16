@@ -59,7 +59,7 @@
 
 /* Basic */
 
-	@media screen and (max-width: 480px) {
+	@media screen and (min-width: 320px) {
 
 		html, body {
 			min-width: 320px;
@@ -222,6 +222,8 @@
 	}
 
 	@media screen and (max-width: 480px) {
+            
+            
 
 		h1 {
 			font-size: 1.65em;

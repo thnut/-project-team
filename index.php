@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -18,10 +17,25 @@ and open the template in the editor.
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <!--<script type="text/javascript" src="main.js"></script>-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
+        
 
 
     </head>
     <body class="is-loading">
+        <div id='cssmenu'>
+            <ul>
+                <li class="active"><a href='#'><span>Home</span></a></li>
+                <li><a href='from.php'><span>Cars</span></a></li>
+                <li><a href='maps.php'><span>Station</span></a></li>
+                <li class='last'><a href='contact.php'><span>Contact</span></a></li>
+            </ul>
+            
+            
+        </div>
+
+
+
+
 
         <!-- Wrapper -->
         <div id="wrapper">
@@ -33,22 +47,29 @@ and open the template in the editor.
                     margin-left: 20px;
                 }
 
-                #map {     
-                    width:800px;    
-                    height:400px;    
-                    margin:auto;    
-                    margin-top:50px;    
-                }   
-                #directionsPanel{  
-                    width:550px;  
-                    margin:auto;  
-                    clear:both;   
-                    /*  background-color:#F1FEE9;*/  
-                }  
+
             </style>
 
 
+            <script>
+                (function ($) {
+                    $(document).ready(function () {
+                        $('#cssmenu').prepend('<div id="menu-button">Menu</div>');
+                        $('#cssmenu #menu-button').on('click', function () {
+                            var menu = $(this).next('ul');
+                            if (menu.hasClass('open')) {
+                                menu.removeClass('open');
+                            } else {
+                                menu.addClass('open');
+                            }
+                        });
+                    });
+                })(jQuery);
+
+            </script>
+
             <section id="main">
+
                 <header>
                     <span class="avatar"><img src="img/Bus-icon.jpg" alt="bus-icon" width="200" height="200" /></span>
                     <h2>Isan Software Map</h2>
@@ -61,7 +82,7 @@ and open the template in the editor.
                             <div class="heading-location">
                                 <p>สถานีต้นทาง</p>
                             </div>
-                            <select class="form-control" name="namePlace" id="namePlace" >
+                            <select class="form-control" name="namePlace" id="namePlace">
                                 //<?php
                                 mysql_connect('localhost', 'root', '');
                                 mysql_select_db('final_project');
@@ -76,8 +97,9 @@ and open the template in the editor.
                             <div class="heading-location">
                                 <p>สถานีปลายทาง</p>
                             </div>
-                            <select class="form-control" name="toplace" id="toplace" >
-                                //<?php
+
+                            <select class="form-control" name="toplace" id="toplace"  >
+                                <?php
                                 mysql_connect('localhost', 'root', '');
                                 mysql_select_db('final_project');
                                 mysql_query('SET NAMES UTF8');
@@ -92,7 +114,7 @@ and open the template in the editor.
                             <ul class="actions">
                                 <input type="button" name="SearchPlace" id="SearchPlace" value="Search" style="margin-top: 20px;"/>  
                                 <!--<input type="button" name="SearchPlace" id="SearchPlace" value="สร้างเส้นทาง" />-->  
-                                <input type="button" name="iClear" id="iClear" value="ล้างค่า" />  
+                                <input type="button" name="iClear" id="iClear" value="Clear" />  
                             </ul>
                         </form>
                     </div>
@@ -101,14 +123,6 @@ and open the template in the editor.
                 <div id="map"></div>    
                 <div id="directionsPanel" style="margin-top: 60px;"></div> 
             </section>
-            
-            <section id="one">
-                
-                
-            </section>
-
-
-
 
 
             <script type="text/javascript">

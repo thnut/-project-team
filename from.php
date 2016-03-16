@@ -22,6 +22,14 @@ and open the template in the editor.
         <script type="text/javascript" src="main.js"></script>
     </head>
     <body class="is-loading">
+        <div id='cssmenu'>
+            <ul>
+                <li class="active"><a href='index.php'><span>Home</span></a></li>
+                <li><a href='from.php'><span>Cars</span></a></li>
+                <li><a href='maps.php'><span>Station</span></a></li>
+                <li class='last'><a href='contact.php'><span>Contact</span></a></li>
+            </ul>
+        </div>
         <style type="text/css">  
 
             /* css กำหนดความกว้าง ความสูงของแผนที่ */  
@@ -67,61 +75,61 @@ and open the template in the editor.
                                         <p><b>บริษัท รถขนส่งสาธารณะ</b></p>
                                     </div>
 
-                         <script>
-                            function showUser(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
-        return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-            }
-        };
-        xmlhttp.open("GET","getData.php?b_id="+str+"&todo=sBus",true);
-        xmlhttp.send();
-    }
-}
+                                    <script>
+                                        function showUser(str) {
+                                            if (str == "") {
+                                                document.getElementById("txtHint").innerHTML = "";
+                                                return;
+                                            } else {
+                                                if (window.XMLHttpRequest) {
+                                                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                                                    xmlhttp = new XMLHttpRequest();
+                                                } else {
+                                                    // code for IE6, IE5
+                                                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                                                }
+                                                xmlhttp.onreadystatechange = function () {
+                                                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                                                        document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                                                    }
+                                                };
+                                                xmlhttp.open("GET", "getData.php?id=" + str, true);
+                                                xmlhttp.send();
+                                            }
+                                        }
 
-function showVas(val){
-        if (val == "") {
-        document.getElementById("Hidevan").innerHTML = "";
-        return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("Hidevan").innerHTML = xmlhttp.responseText;
-            }
-        };
-        xmlhttp.open("GET","getData.php?b_id="+val+"&todo=sVan",true);
-        xmlhttp.send();
-    }
-    }
-                        </script>
+                                        function showVas(val) {
+                                            if (val == "") {
+                                                document.getElementById("Hidevan").innerHTML = "";
+                                                return;
+                                            } else {
+                                                if (window.XMLHttpRequest) {
+                                                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                                                    xmlhttp = new XMLHttpRequest();
+                                                } else {
+                                                    // code for IE6, IE5
+                                                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                                                }
+                                                xmlhttp.onreadystatechange = function () {
+                                                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                                                        document.getElementById("Hidevan").innerHTML = xmlhttp.responseText;
+                                                    }
+                                                };
+                                                xmlhttp.open("GET", "getData.php?id=" + val, true);
+                                                xmlhttp.send();
+                                            }
+                                        }
+                                    </script>
                                     <form id="login-form" action="" method="post" role="form" style="display: block;">
                                         <select class="form-control" name="namePlace" id="namePlace" onchange="showUser(this.value)" >
                                             <?php
                                             mysql_connect('localhost', 'root', '');
                                             mysql_select_db('final_project');
                                             mysql_query('SET NAMES UTF8');
-                                            $sql = "select * from bus";
+                                            $sql = "select * from tbl_car WHERE `type` LIKE 'Bus'";
                                             $result = mysql_query($sql);
                                             while ($row = mysql_fetch_array($result)) {
-                                                echo "<option value=" . $row['b_id'] . ">" . $row['b_name'] . "</option>";
+                                                echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
                                             }
                                             ?>
                                         </select><br>
@@ -129,17 +137,10 @@ function showVas(val){
                                             <p><b>รายละเอียด</b></p>
                                         </div>
 
-                                        
-                                       <textarea id ="txtHint" name="message" rows="20" cols="12">
-                                </textarea>
-                                        
-                                            
-                                    
-                                        
+
+                                        <textarea id ="txtHint" name="message" rows="10" cols="5">
+                                        </textarea>
                                     </form>
-
-                                 
-
                                     <form id="register-form"  method="post" role="form" style="display: none;">
                                         <div id="showDD" style="margin:auto;padding-top:5px;">    
                                             <select class="form-control" name="namePlace" id="namePlace" onchange="showVas(this.value)"  >
@@ -147,65 +148,46 @@ function showVas(val){
                                                 mysql_connect('localhost', 'root', '');
                                                 mysql_select_db('final_project');
                                                 mysql_query('SET NAMES UTF8');
-                                                $sql = "select * from van";
+                                                $sql = "select * from tbl_car WHERE `type` LIKE 'Van'";
                                                 $result = mysql_query($sql);
                                                 while ($row = mysql_fetch_array($result)) {
-                                                    echo "<option value=" . $row['v_id'] . ">" . $row['v_name'] . "</option>";
+                                                    echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
                                                 }
                                                 ?>
                                             </select><br>
                                             <div class="heading-location">
-                                            <p><b>รายละเอียด</b></p>
-                                        </div>
-
-                                        
-                                       <textarea name="message" rows="15" cols="15" id="Hidevan"></textarea>
-                                        
-                                            
-                                    
-                                        
+                                                <p><b>รายละเอียด</b></p>
+                                            </div>
+                                            <textarea name="message" rows="15" cols="15" id="Hidevan"></textarea>
                                     </form>
-                                                   
-
-
-                                                    
                                     </form>
-
                                 </div>
-
-                                 
                             </div>
-                            
                         </div>
-                        
                     </div>
-                </div>
-                <div id="map_canvas"></div> 
+                </div>    
         </div>
-        
+    </script>    
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; </li>
+            <li>Design: </li>
+        </ul>
+    </footer>
 
-       
-        </script>    
-        <!-- Footer -->
-        <footer id="footer">
-            <ul class="copyright">
-                <li>&copy; </li>
-                <li>Design: </li>
-            </ul>
-        </footer>
+</div>
 
-    </div>
-
-    <!-- Scripts -->
-    <!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
-    <script>
-        if ('addEventListener' in window) {
-            window.addEventListener('load', function () {
-                document.body.className = document.body.className.replace(/\bis-loading\b/, '');
-            });
-            document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-        }
-    </script>
+<!-- Scripts -->
+<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+<script>
+    if ('addEventListener' in window) {
+        window.addEventListener('load', function () {
+            document.body.className = document.body.className.replace(/\bis-loading\b/, '');
+        });
+        document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+    }
+</script>
 
 </body>
 </html>

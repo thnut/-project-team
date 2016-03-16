@@ -4,8 +4,8 @@
     <head>  
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
         <title>Google Map API 3 - 01</title>  
-        
-        
+
+
 
         <style type="text/css">  
             html { height: 100% }  
@@ -60,132 +60,9 @@
     </head>  
 
     <body>  
-        
-        <!--NAVBAR-->
-<nav class="navbar navbar-default navbar-static">
-    <!--Mobile Menu-->
-    <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-    </div>
-    <!--Desktop/Tablet Menu-->
-    <div class="collapse navbar-collapse js-navbar-collapse">
-        <div class="container">
-            <div class="row">
-                <div class="btn-group btn-group-justified">
-                    <!--Home-->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <p id="home">Home</p>
-                        </button>
-                    </div>
-                    <!--Wiki-->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-book"></span>
-                            <p id="wiki">Wiki <span class="caret"></span></p>
-                        </button>
-                        <ul class="dropdown-menu multi-column columns-4">
-                            <li class="col-md-3 hidden-xs">
-                                <ul class="multi-column-dropdown">
-                                    <li class="dropdown-header">Header</li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Header</li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                </ul>
-                            </li>
-                            <li class="col-md-3 hidden-xs">
-                                <ul class="multi-column-dropdown">
-                                    <li class="dropdown-header">Header</li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Header</li>
-                                    <li><a href="#">placeholder</a></li>
-                                </ul>
-                            </li>
-                            <li class="col-md-3 hidden-xs">
-                                <ul class="multi-column-dropdown">
-                                    <li class="dropdown-header">Header</li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Header</li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                </ul>
-                            </li>
-                            <li class="col-md-3 hidden-xs">
-                                <ul class="multi-column-dropdown">
-                                    <li class="dropdown-header">Header</li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                    <li><a href="#">placeholder</a></li>
-                                </ul>
-                                <a href="#" style="float:right;padding-right:25px">See All</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--TechTicket-->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-ok-sign"></span>
-                            <p id="techtickets">TechTicket</p>
-                        </button>
-                    </div>
-                    <!--Reports-->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-stats"></span>
-                            <p id="reports">Reports</p>
-                        </button>
-                    </div>
-                    <!--News-->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-bell"></span>
-                            <p id="news">News</p>
-                        </button>
-                    </div>
-                    <!--Calendar-->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                            <p id="calendar">Calendar</p>
-                        </button>
-                    </div>
-                    <!--Profile-->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-user"></span>
-                            <p id="profile">Profile</p>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
+
+
+
 
         <div id="contain_map">  
             <div id="map_canvas"></div>  
@@ -355,10 +232,10 @@
 //                            console.log(legs);
                             for (i = 0; i < legs.length; i++) {
 //                              console.log(legs[i].start_address);
-                                legs[i].start_address = makeInfo(i);
-                                legs[i].end_address = makeInfo(i);
-                                console.log(i);
-                                console.log(makeInfo(1));
+//                                legs[i].start_address = makeInfo(i);  //กำหนด windows info
+//                                legs[i].end_address = makeInfo(i);
+//                                console.log(i);
+//                                console.log(makeInfo(1));
                             }
 //                            console.log(legs);
                             response['routes'][0]['legs'] = legs;
@@ -366,7 +243,7 @@
 //                            var summaryPanel = document.getElementById('directions-panel');
 //                            for (var i = 0; i < markers.length; i++) { // วนลูปล้างค่าตัว marker  
 //                                var routeSegment = i + 1;
-//                                summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+//                                summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + /control panel ของ google maps
 //                                        '</b><br>';
 //                                summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
 //                                summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
@@ -380,8 +257,8 @@
                     });
                 }
 
-                function getData(){
-                    var data = $.ajax({
+                function getData() { // เรียกข้อมูล json ของ info windows
+                    return $.ajax({
                         url: "gd.php",
                         type: "GET",
                         data: ({
@@ -390,22 +267,18 @@
                         }),
                         datatype: "json",
                     }).success(function (result) {
-                        return result;
+                        return jQuery.parseJSON(result);
                     });
-                    
-                    return data;
                 }
 
-                function makeInfo(id) {
-                    var data = getData();
-                    data = data["responseText"];
-                    var json = jQuery.parseJSON(data);
+                function makeInfo(id, data) { /// ฟังชั่นจัดรูปแบบ info windows
                     data = data[id];
                     var name = data['station_name'];
                     var type = data['station_type'];
                     var txt = "<strong>" + name + "<strong></br>" + type;
 
                     return txt;
+                    console.log(txt);
                 }
 
                 // ส่วนควบคุมปุ่มคำสั่งใช้งานฟังก์ชัน  

@@ -97,7 +97,7 @@ mysql_select_db('final_project');
 mysql_query('SET NAMES UTF8');
 
 function way($id) {
-    $sql = "SELECT * FROM `cost` WHERE `startstation_id` =" . $id;
+    $sql = "SELECT * FROM `waypoints` WHERE `startstation_id` =" . $id;
     $result = mysql_query($sql);
 
     $way = array();
@@ -121,7 +121,7 @@ function getStation($id) {
     return $result_sta;
 }
 
-$sql = "SELECT * FROM `cost`";
+$sql = "SELECT * FROM `waypoints`";
 $result = mysql_query($sql);
 $point = array();
 while ($row = mysql_fetch_array($result)) {
