@@ -250,6 +250,7 @@
     margin:auto;    
     margin-top:50px;    
 }   
+
 #directionsPanel{  
     width:550px;  
     margin:auto;  
@@ -262,6 +263,11 @@
         width: 270px;
         height: 200px;
     }
+    #map_canvas {   
+        width: 270px;
+        height: 200px; 
+          
+    }  
     #directionsPanel{  
         width: 270px;
         height: 200px;  

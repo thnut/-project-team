@@ -24,63 +24,46 @@ and open the template in the editor.
     <body class="is-loading">
         <div id='cssmenu'>
             <ul>
-                <li class="active"><a href='index.php'><span>Home</span></a></li>
+                <li class=""><a href='index.php'><span>Home</span></a></li>
                 <li><a href='from.php'><span>Cars</span></a></li>
                 <li><a href='maps.php'><span>Station</span></a></li>
-                <li class='last'><a href='contact.php'><span>Contact</span></a></li>
+                <li class='active'><a href='contact.php'><span>Contact</span></a></li>
             </ul>
         </div>
         <!-- Wrapper -->
         <div id="wrapper">
-            <!-- Main -->
-            <style>
-                nav a {
-                    font-family: sans-serif;
-                    color: black;
-                    margin-left: 20px;
-                }
-            </style>
             <section id="main">
-                <nav style="margin-bottom: 20px;">
-                    <a href="#">Home</a>
-                    <a href="#">Type</a>
-                    <a href="maps.php">Maps</a>
-                    <a href="#">Contact</a>
-                </nav>
-
-
-
                 <div class="container">
                     <div class="row-fluid">
                         <div class="span8">
-                            <iframe width="50%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=15+Springfield+Way,+Hythe,+CT21+5SH&aq=t&sll=52.8382,-2.327815&sspn=8.047465,13.666992&ie=UTF8&hq=&hnear=15+Springfield+Way,+Hythe+CT21+5SH,+United+Kingdom&t=m&z=14&ll=51.077429,1.121722&output=embed"></iframe>
+                            <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=%E0%B8%84%E0%B8%93%E0%B8%B0%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C%20%E0%B8%AA%E0%B8%B2%E0%B8%82%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%84%E0%B8%AD%E0%B8%A1%E0%B8%9E%E0%B8%B4%E0%B8%A7%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C&key=AIzaSyDKJ_TnYg-UDU-HED3pYynqkT5zXdmqp-Q" allowfullscreen></iframe>
                         </div>
 
                         <div class="span4">
-                            <h2>Snail mail</h2>
+                            <h2>มหาวิทยาลัยขอนแก่น</h2>
                             <address>
-                                <strong>Hythe Window Cleaning</strong><br>
-                                15 Springfield Way<br>
-                                Hythe<br>
-                                Kent<br>
-                                United Kingdon<br>
-                                CT21 5SH<br>
-                                <abbr title="Phone">P:</abbr> 01234 567 890
+                                <strong>คณะวิทยาศาสตร์</strong><br>
+                                ภาควิชาวิทยาการคอมพิวเตอร์<br>
+                                มหาวิทยาลัยขอนแก่น<br>
+                                123 ถ.มิตรภาพ ต.ในเมือง อ.เมือง จ.ขอนแก่น 40002 <br>
+                                <abbr title="Phone">โทรศัพท์ :</abbr>  0-4336-2188-90 ต่อ 101-103 โทรสาร. 0-4334-2910
+
+
                             </address>
                         </div>
                     </div>
                 </div>
+            </section>
 
 
 
-
-                <!-- Footer -->
-                <footer id="footer">
-                    <ul class="copyright">
-                        <li>&copy; </li>
-                        <li>Design: </li>
-                    </ul>
-                </footer>
+            <footer id="footer">
+                <li style="list-style: none;"><a href="">Administartor</a></li>
+                <ul class="copyright">
+                    <li>&copy; </li>
+                    <li>Design: </li>
+                </ul>
+            </footer>
 
         </div>
 

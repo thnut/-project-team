@@ -24,8 +24,8 @@ and open the template in the editor.
     <body class="is-loading">
         <div id='cssmenu'>
             <ul>
-                <li class="active"><a href='index.php'><span>Home</span></a></li>
-                <li><a href='from.php'><span>Cars</span></a></li>
+                <li class=""><a href='index.php'><span>Home</span></a></li>
+                <li class="active"><a href='from.php'><span>Cars</span></a></li>
                 <li><a href='maps.php'><span>Station</span></a></li>
                 <li class='last'><a href='contact.php'><span>Contact</span></a></li>
             </ul>
@@ -168,13 +168,7 @@ and open the template in the editor.
                 </div>    
         </div>
     </script>    
-    <!-- Footer -->
-    <footer id="footer">
-        <ul class="copyright">
-            <li>&copy; </li>
-            <li>Design: </li>
-        </ul>
-    </footer>
+    
 
 </div>
 
@@ -188,6 +182,13 @@ and open the template in the editor.
         document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
     }
 </script>
-
+<!-- Footer -->
+    <footer id="footer">
+        <li style="list-style: none;"><a href="">Administartor</a></li>
+        <ul class="copyright">
+            <li>&copy; </li>
+            <li>Design: </li>
+        </ul>
+    </footer>
 </body>
 </html>

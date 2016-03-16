@@ -362,6 +362,7 @@ and open the template in the editor.
 
             <!-- Footer -->
             <footer id="footer">
+                <li style="list-style: none;"><a href="">Administartor</a></li>
                 <ul class="copyright">
                     <li>&copy; </li>
                     <li>Design: </li>
