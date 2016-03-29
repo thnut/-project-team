@@ -184,7 +184,7 @@ and open the template in the editor.
 </script>
 <!-- Footer -->
     <footer id="footer">
-        <li style="list-style: none;"><a href="">Administartor</a></li>
+        <li style="list-style: none;"><a link="backend/web/index.php">Administartor</a></li>
         <ul class="copyright">
             <li>&copy; </li>
             <li>Design: </li>
