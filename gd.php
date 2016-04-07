@@ -120,6 +120,16 @@ function getStation($id) {
     }
     return $result_sta;
 }
+//function geStation($id) {  กูเพิ่มส่วนนี้มา เรียกผิดสินะ
+//    $sql = "SELECT * FROM `waypoints` WHERE `waypoints_id` =" . $id;
+//    $result = mysql_query($sql);
+//    $result_sta = array();
+//    while ($row = mysql_fetch_array($result)) {
+//        $result_sta = $row;
+//    }
+//    return $result_sta;
+//}
+
 
 $sql = "SELECT * FROM `waypoints`";
 $result = mysql_query($sql);
