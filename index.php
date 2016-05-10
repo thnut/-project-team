@@ -114,52 +114,6 @@ and open the template in the editor.
 
                 <div id="map"></div>
                 <div id="directionsPanel" style="margin-top: 60px; "></div>
-
-
-                <!--                <div class="container">
-                                    <ul class="timeline">
-                                        <li>
-                                            <div class="timeline-badge success"><i class="fa "></i></div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h4 class="timeline-title">สถานีขนส่งอำเภอกระนวน จังหวัดขอนแก่น</h4>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>type : bus</p>
-                                                    <p>62.5 Km</p>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <div class="timeline-badge"><i class="fa "></i></div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h4 class="timeline-title">สถานีขนส่งจังหวัดขอนแก่น แห่งที่ 1</h4>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>type : bus,van</p>
-                                                    <p>92.2 km</p>
-                                                </div>
-                                            </div>
-                                        </li>
-
-
-                                        <li>
-                                            <div class="timeline-badge danger"><i class="fa "></i></div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h4 class="timeline-title">สถานีขนส่งผู้โดยสารอำเภอภูเขียว จังหวัดขอนแก่น</h4>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>type : bus,van</p>
-                                                </div>
-                                            </div>
-                                        </li>
-
-
-                                    </ul>
-                                </div>-->
             </section>
             <!-- Footer -->
             <footer id="footer">

@@ -140,8 +140,6 @@ function processRequests(data_js) {
 
 // Called Onload
 function init() {
-
-
   // Some basic map setup (from the API docs)
   var mapOptions = {
     center: new google.maps.LatLng(17, 103),
@@ -152,11 +150,32 @@ function init() {
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+  var infoWindow = new google.maps.InfoWindow({map: map});
+
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('Location found.');
+        map.setCenter(pos);
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+
   // Start the request making
   // console.log("data");
   $("#SearchPlace").click(function () {
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
     $.ajax({ // ใ้ช้ฟังก์ชั่น ajax ในการดึงข้อมูล
       url: "gd.php",
       type: "GET",
@@ -198,7 +217,6 @@ function init() {
 
       generateRequests(ways_all, data_js);
       var htmlPanel = '';
-
       for (var key in data_js){
         var step = data_js[key]['step'];
         var detail = data_js[key]['detail'];
@@ -207,7 +225,7 @@ function init() {
           break;
         }
         var count = Number(key)+1;
-        htmlPanel = htmlPanel.concat("<u><p>เส้นทางที่ "+ count +"</p></u>")
+        htmlPanel = htmlPanel.concat("<div class='list-group-item'>"+"<u><p><b>เส้นทางที่ "+ count +"</b></p></u>")
         // console.log(data_js[key]);
         var size = detail.length;
         console.log(size);
@@ -217,28 +235,22 @@ function init() {
           // console.log(place);
           var place_name = place['station_name'];
           var place_type = place['station_type'];
-
-
           if (index == 0) {
             var desctiption = detail[index];
             console.log(desctiption);
-            htmlPanel = htmlPanel.concat("<div class='p'>"+"<p>"+"ปลายทาง : "+ place_name+"</p>"+
+            htmlPanel = htmlPanel.concat("<p><b>"+"สถานีต้นทาง : "+ place_name+"</b></p>"+
             "<p>"+"สายรถ : "+desctiption['line']+"</p>"+
             "<p>"+"ระยะทาง : "+ desctiption['distance']+"กิโลเมตร"+"</p>" +
-            "<p>"+"ประเภทรถ : "+desctiption['type'] +"</p>"+ "</div><hr />");
-
+            "<p>"+"ประเภทรถ : "+desctiption['type'] +"</p>");
           } else if (index == size) {
-            var desctiption = detail[index-1];
-            htmlPanel = htmlPanel.concat("<div class='p'>"+"<p>"+"ปลายทาง : "+ place_name+"</p>"+
-            "<p>"+"สายรถ : "+desctiption['line']+"</p>"+
-            "<p>"+"ระยะทาง : "+ desctiption['distance']+"กิโลเมตร"+"</p>" +
-            "<p>"+"ประเภทรถ : "+desctiption['type'] +"</p>"+ "</div><hr />");
+            // var desctiption = detail[index];
+            htmlPanel = htmlPanel.concat("<p><b>"+"สถานีปลายทาง : "+ place_name+"</b></p>"+"<br></div>");
           } else {
-            var desctiption = detail[index-1];
-            htmlPanel = htmlPanel.concat("<div class='p'>"+"<p><b>"+"จุดระหว่างทาง : "+ place_name+"</b></p>"+
+            var desctiption = detail[index];
+            htmlPanel = htmlPanel.concat("<p><b>"+"จุดระหว่างทาง : "+ place_name+"</b></p>"+
             "<p>"+"สายรถ : "+desctiption['line']+"</p>"+
             "<p>"+"ระยะทาง : "+ desctiption['distance']+"กิโลเมตร"+"</p>" +
-            "<p>"+"ประเภทรถ : "+desctiption['type'] +"</p>"+ "</div>");
+            "<p>"+"ประเภทรถ : "+desctiption['type'] +"</p>");
           }
         }
         // console.log(htmlPanel);
@@ -248,6 +260,8 @@ function init() {
       $("#directionsPanel").html(htmlPanel);
     });
   });
+
+
 }
 
 // Get the ball rolling and trigger our init() on 'load'
