@@ -222,8 +222,8 @@
 	}
 
 	@media screen and (max-width: 480px) {
-            
-            
+
+
 
 		h1 {
 			font-size: 1.65em;
@@ -703,6 +703,7 @@
 /* Main */
 
 	#main {
+		height: auto;
 		position: relative;
 		max-width: 100%;
 		min-width: 27em;

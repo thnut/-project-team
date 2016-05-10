@@ -15,9 +15,10 @@ and open the template in the editor.
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-        <!--<script type="text/javascript" src="main.js"></script>-->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKJ_TnYg-UDU-HED3pYynqkT5zXdmqp-Q&sensor=false"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script src="index.js" type="text/javascript"></script>
+
     </head>
     <body class="is-loading">
         <div id='cssmenu'>
@@ -29,121 +30,8 @@ and open the template in the editor.
             </ul>
         </div>
 
-        <!-- Wrapper -->
         <div id="wrapper">
-            <!-- Main -->
 
-<!--            <style>
-
-
-                .timeline {
-                    width: 800px;
-                    list-style: none;
-                    padding: 20px 0 20px;
-                    position: relative;
-                    margin-left: 150px;
-                }
-
-                .timeline:before {
-                    top: 0;
-                    bottom: 0;
-                    position: absolute;
-                    content: " ";
-                    width: 3px;
-                    background-color: #eeeeee;
-                    left: 25px;
-                    margin-right: -1.5px;
-                }
-
-                .timeline > li {
-                    margin-bottom: 20px;
-                    position: relative;
-                }
-
-                .timeline > li:before,
-                .timeline > li:after {
-                    content: " ";
-                    display: table;
-                }
-
-                .timeline > li:after {
-                    clear: both;
-                }
-
-                .timeline > li > .timeline-panel {
-                    width: calc( 100% - 75px );
-                    float: right;
-                    border: 1px solid #d4d4d4;
-                    border-radius: 2px;
-                    padding: 20px;
-                    position: relative;
-                    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-                    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-                }
-
-                .timeline > li > .timeline-panel:before {
-                    position: absolute;
-                    top: 26px;
-                    left: -15px;
-                    display: inline-block;
-                    border-top: 15px solid transparent;
-                    border-right: 15px solid #ccc;
-                    border-left: 0 solid #ccc;
-                    border-bottom: 15px solid transparent;
-                    content: " ";
-                }
-
-                .timeline > li > .timeline-panel:after {
-                    position: absolute;
-                    top: 27px;
-                    left: -14px;
-                    display: inline-block;
-                    border-top: 14px solid transparent;
-                    border-right: 14px solid #fff;
-                    border-left: 0 solid #fff;
-                    border-bottom: 14px solid transparent;
-                    content: " ";
-                }
-
-                .timeline > li > .timeline-badge {
-                    color: #fff;
-                    width: 50px;
-                    height: 50px;
-                    line-height: 50px;
-                    font-size: 1.4em;
-                    text-align: center;
-                    position: absolute;
-                    top: 16px;
-                    left: 0px;
-                    margin-right: -25px;
-                    background-color: #999999;
-                    z-index: 100;
-                    border-top-right-radius: 50%;
-                    border-top-left-radius: 50%;
-                    border-bottom-right-radius: 50%;
-                    border-bottom-left-radius: 50%;
-                }
-
-                .timeline-badge.primary {
-                    background-color: #2e6da4 !important;
-                }
-
-                .timeline-badge.success {
-                    background-color: #3f903f !important;
-                }
-
-                .timeline-badge.warning {
-                    background-color: #f0ad4e !important;
-                }
-
-                .timeline-badge.danger {
-                    background-color: #d9534f !important;
-                }
-
-                .timeline-badge.info {
-                    background-color: #5bc0de !important;
-                }
-            </style>
             <style>
                 nav a {
                     font-family: sans-serif;
@@ -170,7 +58,7 @@ and open the template in the editor.
                     });
                 })(jQuery);
 
-            </script>-->
+            </script>
 
             <section id="main">
 
@@ -216,16 +104,16 @@ and open the template in the editor.
                             </select>
 
                             <ul class="actions">
-                                <input type="button" name="SearchPlace" id="SearchPlace" value="Search" style="margin-top: 20px;"/>  
-                                <!--<input type="button" name="SearchPlace" id="SearchPlace" value="สร้างเส้นทาง" />-->  
-                                <input type="button" name="iClear" id="iClear" value="Clear" />  
+                                <input type="button" name="SearchPlace" id="SearchPlace" value="Search" style="margin-top: 20px;"/>
+                                <!--<input type="button" name="SearchPlace" id="SearchPlace" value="สร้างเส้นทาง" />-->
+                                <input type="button" name="iClear" id="iClear" value="Clear" />
                             </ul>
                         </form>
                     </div>
-                </div>      
+                </div>
 
-                <div id="map"></div>    
-                <div id="directionsPanel" style="margin-top: 60px;"></div> 
+                <div id="map"></div>
+                <div id="directionsPanel" style="margin-top: 60px; "></div>
 
 
                 <!--                <div class="container">
@@ -242,7 +130,7 @@ and open the template in the editor.
                                                 </div>
                                             </div>
                                         </li>
-                
+
                                         <li>
                                             <div class="timeline-badge"><i class="fa "></i></div>
                                             <div class="timeline-panel">
@@ -255,8 +143,8 @@ and open the template in the editor.
                                                 </div>
                                             </div>
                                         </li>
-                
-                
+
+
                                         <li>
                                             <div class="timeline-badge danger"><i class="fa "></i></div>
                                             <div class="timeline-panel">
@@ -268,8 +156,8 @@ and open the template in the editor.
                                                 </div>
                                             </div>
                                         </li>
-                
-                
+
+
                                     </ul>
                                 </div>-->
             </section>

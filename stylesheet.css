@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+.p {
+  border: solid 1px black;
+}
 #cssmenu {
     background-color: #ffffff;
     background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 15, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
@@ -244,35 +247,35 @@
     width: 170px;
     display: block;
 }
-#map {     
-    width:800px;    
-    height:400px;    
-    margin:auto;    
-    margin-top:50px;    
-}   
+#map {
+    width:800px;
+    height:400px;
+    margin:auto;
+    margin-top:50px;
+}
 
-#directionsPanel{  
-    width:550px;  
-    margin:auto;  
-    clear:both;   
-    /*  background-color:#F1FEE9;*/  
-}  
+#directionsPanel{
+    width:550px;
+    margin:auto;
+    clear:both;
+    /*  background-color:#F1FEE9;*/
+}
 
 @media all and (max-width: 375px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
     #map{
         width: 270px;
         height: 200px;
     }
-    #map_canvas {   
+    #map_canvas {
         width: 270px;
-        height: 200px; 
-          
-    }  
-    #directionsPanel{  
+        height: 200px;
+
+    }
+    #directionsPanel{
         width: 270px;
-        height: 200px;  
-        clear:both; 
-    } 
+        height: 200px;
+        clear:both;
+    }
     #cssmenu > ul {
         max-height: 0;
         overflow: hidden;
