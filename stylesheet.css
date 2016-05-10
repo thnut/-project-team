@@ -267,77 +267,16 @@
 }
 
 
-.round-button {
-	width:70%;
-}
-.round-button-circle {
-	width: 70%;
-	height:0;
-	padding-bottom: 70%;
-    border-radius: 50%;
-    overflow:hidden;
-
-    background: orange;
-    box-shadow: 0 0 3px gray;
-}
-.round-button-circle:hover {
-	background:black;
-}
-.round-button a {
-    display:block;
-	float:left;
-	width:100%;
-	padding-top:50%;
-    padding-bottom:50%;
-	line-height:1em;
-	margin-top:-0.5em;
-
-	text-align:center;
-	color:#e2eaf3;
-    font-family:Verdana;
-    font-size:1.2em;
-    font-weight:bold;
-    text-decoration:none;
-}
 
 
 
-@media all and (max-width: 375px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+@media all and (max-width: 375px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 500px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
 
 
 
-  .round-button {
-  	width:50%;
-  }
-  .round-button-circle {
-  	width: 50%;
-  	height:0;
-  	padding-bottom: 50%;
-      border-radius: 50%;
-      overflow:hidden;
-
-      background: orange;
-      box-shadow: 0 0 3px gray;
-  }
-  .round-button-circle:hover {
-  	background:black;
-  }
-  .round-button a {
-      display:block;
-  	float:left;
-  	width:100%;
-  	padding-top:50%;
-      padding-bottom:50%;
-  	line-height:1em;
-  	margin-top:-0.5em;
-
-  	text-align:center;
-  	color:#e2eaf3;
-      font-family:Verdana;
-      font-size:1.2em;
-      font-weight:bold;
-      text-decoration:none;
-  }
+   .panel-body {
+     width: 330px;
+   }
 
     #map{
         width: auto;

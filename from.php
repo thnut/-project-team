@@ -47,10 +47,10 @@ and open the template in the editor.
             <div class="row">
               <div class="col-md-6 ">
                 <!-- <a href="#" class="active" >Bus</a> -->
-                <div class="round-button"><div class="round-button-circle"><a href="#" id="login-form-link"  class="round-button active">Bus</a></div></div>
+                <div class="list-group-item" id="login-form-link"  class="round-button active">Bus</a></div>
               </div>
               <div class="col-md-6">
-                <div class="round-button"><div class="round-button-circle"><a href="#" id="register-form-link"  class="round-button active">Van</a></div></div>
+              <div class="list-group-item" id="register-form-link"  class="round-button active">Van</a></div>
               </div>
             </div>
             <hr/>
@@ -62,7 +62,7 @@ and open the template in the editor.
                 <div class="heading-location">
                   <p><b>บริษัท รถขนส่งสาธารณะ</b></p>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-12">
                   <form id="login-form" action="" method="post" role="form" style=" display: block;">
                     <select class="form-control" name="namePlace" id="namePlace" onchange="showUser(this.value)" >
                       <?php
