@@ -74,7 +74,7 @@ function processRequests(data_js) {
     if (status == google.maps.DirectionsStatus.OK) {
 
       // Create a unique DirectionsRenderer 'i'
-      renderArray[i] = new google.maps.DirectionsRenderer(); // สร้างตัวเส้นทางทัพกับไเปเรื่อยๆ
+      renderArray[i] = new google.maps.DirectionsRenderer(); // สร้างตัวเส้นทางทับกับไเปเรื่อยๆ
       renderArray[i].setMap(map);
 
       // console.log(result);
@@ -188,7 +188,7 @@ function init() {
       }),
       datatype: "json",
     }).success(function (result) {
-      var data_js = jQuery.parseJSON(result);
+      var data_js = jQuery.parseJSON(result); // แปลงค่า result ให้เป็น json
 
       //ดึงเส้นทาง
       ways = [];
@@ -199,9 +199,9 @@ function init() {
           for (var j = 0; j < step.length; j++) {
             lat = step[j]['station_lat'];
             lon = step[j]['station_lon'];
-            way.push(lat+','+lon);
+            way.push(lat+','+lon); //เอาค่า lat lon ใส่เข้าไปใน array
           }
-          ways.push(way);
+          ways.push(way); // รวมข้อมูลเป็นก้อน 1 ก้อน
         }
       }
 
@@ -221,6 +221,8 @@ function init() {
 
       generateRequests(ways_all, data_js);
       var htmlPanel = '';
+      var htmlhead = '';
+
       for (var key in data_js){
         var step = data_js[key]['step'];
         var detail = data_js[key]['detail'];
@@ -229,10 +231,17 @@ function init() {
           break;
         }
         var count = Number(key)+1;
-        htmlPanel = htmlPanel.concat("<div class='list-group-item'>"+"<u><p><b>เส้นทางที่ "+ count +"</b></p></u>")
+
+
+        if(count == 1){
+          htmlhead =  htmlhead.concat("<li class='active'><a data-toggle='tab' href='#1'>เส้นทางที่ 1 </a></li>");
+        }else {
+          htmlhead =  htmlhead.concat("<li><a data-toggle='tab' href='#"+count+"'>เส้นทางที่ "+count+"่</a></li>");
+        }
+
         // console.log(data_js[key]);
         var size = detail.length;
-        console.log(size);
+        // console.log(size);
         for (var index in step) {
           var place = step[index];
 
@@ -241,17 +250,25 @@ function init() {
           var place_type = place['station_type'];
           if (index == 0) {
             var desctiption = detail[index];
-            console.log(desctiption);
-            htmlPanel = htmlPanel.concat("<p><b>"+"สถานีต้นทาง : "+ place_name+"</b></p>"+
-            "<p>"+"สายรถ : "+desctiption['line']+"</p>"+
-            "<p>"+"ระยะทาง : "+ desctiption['distance']+"กิโลเมตร"+"</p>" +
-            "<p>"+"ประเภทรถ : "+desctiption['type'] +"</p>");
+            // console.log(desctiption);
+            if(count == 1){
+              htmlPanel = htmlPanel.concat("<div id='"+count+"' class='tab-pane fade in active'><p><b>"+"สถานีต้นทาง : "+ place_name+"</b></p>"+
+              "<p>"+"สายรถ : "+desctiption['line']+"</p>"+
+              "<p>"+"ระยะทาง : "+ desctiption['distance']+"กิโลเมตร"+"</p>" +
+              "<p>"+"ประเภทรถ : "+desctiption['type'] +"</p>");
+            }else {
+              htmlPanel = htmlPanel.concat("<div id='"+count+"' class='tab-pane fade'><p><b>"+"สถานีต้นทาง : "+ place_name+"</b></p>"+
+              "<p>"+"สายรถ : "+desctiption['line']+"</p>"+
+              "<p>"+"ระยะทาง : "+ desctiption['distance']+"กิโลเมตร"+"</p>" +
+              "<p>"+"ประเภทรถ : "+desctiption['type'] +"</p>");
+            }
+
           } else if (index == size) {
             // var desctiption = detail[index];
-            htmlPanel = htmlPanel.concat("<p><b>"+"สถานีปลายทาง : "+ place_name+"</b></p>"+"<br></div>");
+            htmlPanel = htmlPanel.concat("<p><b>"+"สถานีปลายทาง : "+ place_name+"</b></p></div>");
           } else {
             var desctiption = detail[index];
-            htmlPanel = htmlPanel.concat("<p><b>"+"จุดระหว่างทาง : "+ place_name+"</b></p>"+
+            htmlPanel = htmlPanel.concat("<p><b>"+"จุดต่อรถ : "+ place_name+"</b></p>"+
             "<p>"+"สายรถ : "+desctiption['line']+"</p>"+
             "<p>"+"ระยะทาง : "+ desctiption['distance']+"กิโลเมตร"+"</p>" +
             "<p>"+"ประเภทรถ : "+desctiption['type'] +"</p>");
@@ -260,8 +277,12 @@ function init() {
         // console.log(htmlPanel);
         // htmlPanel = htmlPanel.concat("</br>------------------------------------------------------------")
       }
+
+      //ul.innerHTML = htmlhead;
+      //onsole.log(ul+htmlPanel);//
       // console.log(htmlPanel);
-      $("#directionsPanel").html(htmlPanel);
+      $("#H").html(htmlhead);
+      $("#C").html(htmlPanel);
     });
   });
 

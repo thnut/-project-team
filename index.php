@@ -8,19 +8,22 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <meta http-equiv=Content-Type content="text/html; charset=utf-8">
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
         <title>Isan Software Public</title>
         <link rel="stylesheet" href="assets/css/main.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKJ_TnYg-UDU-HED3pYynqkT5zXdmqp-Q&sensor=false"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
         <script src="index.js" type="text/javascript"></script>
 
     </head>
     <body class="is-loading">
+
         <div id='cssmenu'>
             <ul>
                 <li class="active"><a href='#'><span>Home</span></a></li>
@@ -29,7 +32,7 @@ and open the template in the editor.
                 <li class='last'><a href='contact.php'><span>Contact</span></a></li>
             </ul>
         </div>
-
+<div class="container-fluid">
         <div id="wrapper">
 
             <style>
@@ -42,23 +45,6 @@ and open the template in the editor.
 
             </style>
 
-
-            <script>
-                (function ($) {
-                    $(document).ready(function () {
-                        $('#cssmenu').prepend('<div id="menu-button">Menu</div>');
-                        $('#cssmenu #menu-button').on('click', function () {
-                            var menu = $(this).next('ul');
-                            if (menu.hasClass('open')) {
-                                menu.removeClass('open');
-                            } else {
-                                menu.addClass('open');
-                            }
-                        });
-                    });
-                })(jQuery);
-
-            </script>
 
             <section id="main">
 
@@ -106,15 +92,19 @@ and open the template in the editor.
                             <ul class="actions">
                                 <input type="button" name="SearchPlace" id="SearchPlace" value="Search" style="margin-top: 20px;"/>
                                 <!--<input type="button" name="SearchPlace" id="SearchPlace" value="สร้างเส้นทาง" />-->
-                                <input type="button" name="iClear" id="iClear" value="Clear" />
+                                <!-- <input type="button" name="iClear" id="iClear" value="Clear" /> -->
                             </ul>
                         </form>
                     </div>
                 </div>
 
                 <div id="map"></div>
-                <div id="directionsPanel" style="margin-top: 60px; "></div>
+                <div id="directionsPanel ">
+                  <ul id="H" class="nav nav-tabs"></ul>
+                  <div id="C" class="tab-content"></div>
+                </div>
             </section>
+
             <!-- Footer -->
             <footer id="footer">
                 <li style="list-style: none;"><a href="backend/web/index.php">Administartor</a></li>
@@ -125,6 +115,7 @@ and open the template in the editor.
             </footer>
 
         </div>
+      </div>
 
         <!-- Scripts -->
         <!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->

@@ -1,99 +1,43 @@
-<?php
-class PriorityQueue extends SplPriorityQueue
-{
-    public function compare( $priority1, $priority2 )
-    {
-        if ($priority1 === $priority2) return 0;
-        return $priority1 < $priority2 ? 1 : -1;
-    }
-}
-class Graph
-{
-  private $verticies;
-	function __construct()
-	{
-		$this->verticies = array();
-	}
-	public function add_vertex( $name, $edges )
-	{
-		$this->verticies[ $name ] = $edges;
-	}
-	public function shortest_path( $start, $finish )
-	{
-		$distances = array();
-		$previous = array();
-		$nodes = new PriorityQueue();
-		foreach ( $this->verticies AS $vertex => $value )
-		{
-			if ( $vertex === $start )
-			{
-				$distances[ $vertex ] = 0;
-				$nodes->insert( $vertex, 0 );
-			}
-			else
-			{
-				$distances[ $vertex ] = PHP_INT_MAX;
-				$nodes->insert( $vertex, PHP_INT_MAX );
-			}
-			$previous[ $vertex ] = null;
-		}
-		$nodes->top();
-		while ( $nodes->valid() )
-		{
-			$smallest = $nodes->current();
-			if ( $smallest === $finish )
-			{
-				$path = array();
-				while ( $previous[ $smallest ] )
-				{
-					$path[] = $smallest;
-					$smallest = $previous[ $smallest ];
-				}
-				$path[] = $start;
-				return array_reverse( $path );
-			}
-			if ( $smallest === null || $distances[ $smallest ] === PHP_INT_MAX )
-			{
-				break;
-			}
-			foreach ( $this->verticies[ $smallest ] AS $neighbor => $value )
-			{
-				$alt = $distances[ $smallest ] + $this->verticies[ $smallest ][ $neighbor ];
-				if ( $alt < $distances[ $neighbor ] )
-				{
-					$distances[ $neighbor ] = $alt;
-					$previous[ $neighbor ] = $smallest;
-					$nodes->insert( $neighbor, $alt );
-				}
-			}
-			$nodes->next();
-		}
-		return $distances;
-	}
-	public function __toString()
-	{
-		return print_r( $this->verticies, true );
-	}
-}
-$graph = new Graph();
-$graph->add_vertex( 'A', array( 'B' => 7, 'C' => 8 ) );
-$graph->add_vertex( 'B', array( 'A' => 7, 'F' => 2 ) );
-$graph->add_vertex( 'C', array( 'A' => 8, 'F' => 6, 'G' => 4 ) );
-$graph->add_vertex( 'D', array( 'F' => 8 ) );
-$graph->add_vertex( 'E', array( 'H' => 1 ) );
-$graph->add_vertex( 'F', array( 'B' => 2, 'C' => 6, 'D' => 8, 'G' => 9, 'H' => 3 ) );
-$graph->add_vertex( 'G', array( 'C' => 4, 'F' => 9 ) );
-$graph->add_vertex( 'H', array( 'E' => 1, 'F' => 3 ) );
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-//$graph->add_vertex( '1', array( '2' => 7, '3' => 8 ) );
-//$graph->add_vertex( '2', array( '1' => 7, '6' => 2 ) );
-//$graph->add_vertex( '3', array( '2' => 8, '6' => 6, '7' => 4 ) );
-//$graph->add_vertex( '4', array( '6' => 8 ) );
-//$graph->add_vertex( '5', array( '8' => 1 ) );
-//$graph->add_vertex( '6', array( '2' => 2, '3' => 6, '4' => 8, '7' => 9, '8' => 3 ) );
-//$graph->add_vertex( '7', array( '3' => 4, '6' => 9 ) );
-//$graph->add_vertex( '8', array( '5' => 1, '6' => 3 ) );
+<div class="container">
+  <h2>Dynamic Tabs</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+  </ul>
 
-echo '<pre>';
-print_r($graph->shortest_path('A', 'H'));
-echo '</pre>';
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
